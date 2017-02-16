@@ -27,6 +27,6 @@ class Config {
         {
             return null;
         }
-        return $this-settings[$key];
+        return $this->settings[$key];
     }
 }
