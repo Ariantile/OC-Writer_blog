@@ -1,0 +1,45 @@
+/*
+ * Menu de navigation
+ */
+
+.menu-bar
+{
+    background-color: #075EB8;
+}
+
+.navbar-brand
+{
+    color: #FFFFFF!important;
+    background-color: #064B94;
+}
+
+.logo:hover
+{
+    background-color: #032B54!important;
+}
+
+.navbar-nav a
+{
+    color: #FFFFFF!important;
+}
+
+.navbar-nav a:hover
+{
+    color: #000000!important;
+}
+
+.navbar-nav li:hover
+{
+    background-color: #0A93FF;
+}
+
+/*
+ * Footer
+ */
+/*
+.footer-bar
+{
+    background-color: #075EB8;
+    height: 300px;
+}
+*/

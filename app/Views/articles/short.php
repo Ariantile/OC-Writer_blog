@@ -1,0 +1,1 @@
+<p>Contenu page de liste des nouvelles</p>
