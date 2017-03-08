@@ -29,7 +29,20 @@ class BootstrapForm extends Form
         $value = $this->getValue($name);
         
         return $this->surround(
-            '<input type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control">'
+            '<input id="input-' . $name . '" type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control">'
+        );
+    }
+    
+    /**
+     * @param $name string
+     * @return string
+     */
+    public function checkbox($name)
+    {
+        $value = $this->getValue($name);
+        
+        return $this->surround(
+            '<input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
         );
     }
     
@@ -46,7 +59,7 @@ class BootstrapForm extends Form
         $value = $this->getValue($name);
         
         return $this->surround(
-            '<textarea rows="' . $rows . '" $cols ="' . $cols . '" name="' . $name . '" class="form-control">' . $value . '</textarea>'
+            '<textarea id="write-area" rows="' . $rows . '" $cols ="' . $cols . '" name="' . $name . '" class="form-control">' . $value . '</textarea>'
         );
     }
     
@@ -60,7 +73,8 @@ class BootstrapForm extends Form
             if($k == $this->getValue($name)){
                 $attributes = ' selected';
             }
-            $input .= "options value='$k'$attributes>$v</option>";
+            
+            $input .= "<option value='" . $k . " - " . $attributes . "'>" . $v->getName() . "</option>";
         }
         $input .= '</select>';
         return $this->surround($label . $input);

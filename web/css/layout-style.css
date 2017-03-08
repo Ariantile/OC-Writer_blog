@@ -1,16 +1,64 @@
-/*
- * Menu de navigation
- */
+/*******************************************
+BODY & HTML 
+*******************************************/
+
+body
+{
+    
+}
+
+/*******************************************
+TOP HEADER 
+*******************************************/
+
+.top-header-bloc
+{
+    text-align: right;
+    background-color: #31ABBA;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+}
+
+.top-header-links a
+{
+    color: #FFFFFF;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*******************************************
+LOGO 
+*******************************************/
+
+.logo-bloc
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    background-color: #2B5695;
+}
+
+/*******************************************
+MENU 
+*******************************************/
+
+.navbar
+{
+    margin-bottom: 0px!important;
+}
 
 .menu-bar
 {
-    background-color: #075EB8;
+    background-color: #31ABBA;
+    border: none!important;
+    border-radius: 0px!important;
 }
 
 .navbar-brand
 {
     color: #FFFFFF!important;
-    background-color: #064B94;
+    background-color: #2B5695;
 }
 
 .logo:hover
@@ -25,21 +73,56 @@
 
 .navbar-nav a:hover
 {
-    color: #000000!important;
+    color: #31ABBA!important;
 }
 
 .navbar-nav li:hover
 {
-    background-color: #0A93FF;
+    background-color: #2B5695;
 }
 
-/*
- * Footer
- */
-/*
+/*******************************************
+CONTENT 
+*******************************************/
+
+.content-bloc
+{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 544px;
+    background-color: #F7F7F7;
+}
+
+/*******************************************
+FOOTER 
+*******************************************/
+
 .footer-bar
 {
-    background-color: #075EB8;
-    height: 300px;
+    background-color: #2B5695;
+    height: 200px;
 }
-*/
+
+.social-network-bloc
+{
+    text-align: center;
+}
+
+.social-network-bloc p
+{
+    color: #FFFFFF;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.social-network-bloc a
+{
+    color: #FFFFFF;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.social-network-bloc a:hover
+{
+    color: #31ABBA;
+}

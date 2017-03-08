@@ -18,7 +18,7 @@ class UserController extends AppController
         {
             $auth = new DatabaseAuth($app->getDb());
             if ($auth->login($_POST['username'], $_POST['password'])) {
-                header('Location: index.php?p=admin-article-index');
+                header('Location: admin/articles');
             } else {
                 $error = true;
             }

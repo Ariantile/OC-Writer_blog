@@ -1,9 +1,5 @@
 <h1>Administration des articles postés</h1>
 
-<p>
-    <a href="?p=admin-article-add" class="btn btn-success">Ajouter</a>
-</p>
-
 <table class="table">
     <thead>
         <tr>

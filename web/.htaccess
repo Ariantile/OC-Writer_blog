@@ -1,0 +1,17 @@
+RewriteEngine on
+
+RewriteBase /writer/web
+
+RewriteRule ^accueil            index.php?p=article-home
+RewriteRule ^article/([0-9]+)   index.php?p=article-read&id=$1
+RewriteRule ^article/index      index.php?p=article-index
+RewriteRule ^article/ajouter    index.php?p=article-write
+RewriteRule ^membre             index.php?p=member
+RewriteRule ^login              index.php?p=user-login
+RewriteRule ^inscription        index.php?p=user-register
+RewriteRule ^oublie             index.php?p=user-forgot
+RewriteRule ^activate           index.php?p=user-activate
+RewriteRule ^admin/articles     index.php?p=admin-article-index
+RewriteRule ^admin/categories   index.php?p=admin-categorie-index
+RewriteRule ^admin/commentaires index.php?p=admin-comment-index
+RewriteRule ^admin/users        index.php?p=admin-user-index

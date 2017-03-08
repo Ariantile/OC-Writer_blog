@@ -1,7 +1,17 @@
+/*******************************************
+CONTAINER 
+*******************************************/
+
 .bloc-form
 {
-    width: 100%;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/*******************************************
+LOGIN 
+*******************************************/
 
 .login-form
 {
@@ -10,9 +20,23 @@
     margin-right: auto;
 }
 
-.edit-form
+/*******************************************
+WRITE 
+*******************************************/
+
+.write-form
 {
-    width: 800px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-bottom: 2px solid #96A0A6;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.write-form .form-group
+{
+    margin-bottom: 0px!important;
 }

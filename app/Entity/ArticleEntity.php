@@ -161,7 +161,7 @@ class ArticleEntity extends Entity
     
     public function getUrl()
     {
-        return 'index.php?p=read&id=' . $this->id;
+        return 'article/' . $this->id;
     }
     
     public function getExtract()

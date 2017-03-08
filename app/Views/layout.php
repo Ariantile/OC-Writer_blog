@@ -9,13 +9,28 @@
         </title> 
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../web/css/form-style.css" type="text/css">
-        <link rel="stylesheet" href="../web/css/layout-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/layout-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
+        <script src="/writer/web/js/tinymce/tinymce.min.js"></script>
     </head>
     
     <body>
         <div class="container-fluid">
             <header class="row">
+                
+                <div class="top-header-bloc">
+                    <div class="top-header-links">
+                        <span><a href="/writer/web/login">Connexion</a></span>
+                        <span><a href="/writer/web/membre">Profil</a></span>
+                    </div>
+                </div>
+                
+                <div class="logo-bloc">
+                    <img src="/writer/web/img/logo.png" alt="logo">
+                </div>
+                
+                
                 <nav class="navbar navbar-default menu-bar" role="navigation">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -24,32 +39,55 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="logo navbar-brand" href="index.php?p=article-index">Writer</a>
+                        <a class="logo navbar-brand" href="/writer/web/accueil">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                        </a>
                     </div>
                     
                     <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav">
-                            <li><a class="active" href="index.php?p=article-index">Liste des articles</a></li>
-                            <li><a href="index.php?p=user-login">Login</a></li>
-                            <li><a href="index.php?p=admin-article-index">Admin article</a></li>
-                            <li><a href="index.php?p=admin-categorie-index">Admin categorie</a></li>
+                            <li><a class="active" href="/writer/web/article/index ">Index des écrits</a></li>
+                            <li>
+                                <a href="/writer/web/article/ajouter">
+                                    <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                                    Écrire
+                                </a>
+                            </li>
+                            <li><a href="/writer/web/admin/articles">Admin articles</a></li>
+                            <li><a href="/writer/web/admin/categories">Admin categories</a></li>
+                            <li><a href="/writer/web/admin/commentaires">Admin commentaires</a></li>
+                            <li><a href="/writer/web/admin/users">Admin utilisateurs</a></li>
                         </ul>
-                        <form class="navbar-form navbar-right" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
+
+                        
                     </div><!-- /.navbar-collapse -->
                 </nav>
             </header>
             
-            <section class="row">
+            <section class="row content-bloc">
                 <?= $content; ?>
             </section>  
                 
             <footer class="row footer-bar">
-                <p>Footer</p>
+                <div class="col-xs-4">
+                    
+                </div>
+                <div class="col-xs-4 social-network-bloc">
+                    <p>Retrouvez moi sur les réseaux sociaux</p>
+                    <hr>
+                    <a href="/writer/web/accueil">
+                        <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <a href="/writer/web/accueil">
+                        <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <a href="/writer/web/accueil">
+                        <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    
+                </div>
             </footer>
             <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

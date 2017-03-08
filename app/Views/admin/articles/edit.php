@@ -1,3 +1,9 @@
+<script>
+tinymce.init({
+    selector: '#mytextarea'
+  });
+</script> 
+
 <div class="bloc-form">
     <form method="post" class="edit-form">
         <?= $form->input('title'); ?>
