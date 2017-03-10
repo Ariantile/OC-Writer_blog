@@ -17,10 +17,28 @@ class ArticleController extends AppController
     
     public function index()
     {
-        $articles = App::getInstance()->getTable('Article')->getLast();
+        if (isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+        } else {
+            $cp = 1;
+        }
+        
+        $form = new BootstrapForm($_POST);
+        
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp);
         $categories = App::getInstance()->getTable('Categorie')->getAll();
         
-        $this->render('articles.index', compact('articles', 'categories'));
+        $this->render('articles.index', compact('articles', 'categories', 'form'));
+    }
+    
+    public function searchResults()
+    {
+        
+    }
+    
+    public function indexByCategory()
+    {
+        
     }
     
     public function read()

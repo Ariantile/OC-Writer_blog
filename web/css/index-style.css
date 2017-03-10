@@ -1,0 +1,88 @@
+/*******************************************
+WRITE 
+*******************************************/
+
+.index-bloc-left, .index-bloc-right
+{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.index-bloc-right
+{
+    background-color: #2E2E2E;
+    min-height: 600px;
+}
+
+.index-bloc-right label
+{
+    color: #96A0A6;
+    background-color: #F6F6FA;
+    border-bottom: 1px solid #96A0A6;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+
+.index-options-bloc
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-bottom: 2px solid #96A0A6;
+    margin-bottom: 10px;
+}
+
+.index-options-bloc .form-group
+{
+    margin-bottom: 0px!important;
+}
+
+.index-options-bloc button
+{
+    margin-top: 20px;
+}
+
+/*******************************************
+INPUT 
+*******************************************/
+
+.input-text-style
+{
+    border-radius: 0px;
+    border-bottom: 1px solid #96A0A6;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #F1F6FF;
+}
+
+.btn-custom
+{
+    background-color: #31ABBA;
+    color: #FFFFFF;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.btn-custom:hover
+{
+    background-color: #2B5695;
+    color: #31ABBA;
+}
+
+/*******************************************
+LABEL 
+*******************************************/
+
+.bloc-form label
+{
+    background-color: #2B5695;
+    width: 100%;
+    margin-bottom: 0px!important;
+}

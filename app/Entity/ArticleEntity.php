@@ -161,13 +161,14 @@ class ArticleEntity extends Entity
     
     public function getUrl()
     {
-        return 'article/' . $this->id;
+        return '/writer/web/article/' . $this->id;
     }
     
     public function getExtract()
     {
         $html = '<p>' . substr($this->text, 0, 100) . '...</p>';
         $html .= '<p> <a href="' .$this->getUrl() .  '"> voir la suite</a></p>';
+        return $html;
     }
     
 }

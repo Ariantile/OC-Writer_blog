@@ -1,0 +1,128 @@
+/*******************************************
+CONTAINERS
+*******************************************/
+
+.read-title-bloc
+{
+    color: #96A0A6;
+    background-color: #ECECF0;
+    border-bottom: 1px solid #96A0A6;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+
+.reading-bloc
+{
+    text-align: justify;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 2em;
+}
+
+.reading-font-bloc
+{
+    
+}
+
+.reading-size-bloc
+{
+    
+}
+
+.reading-color-bloc
+{
+    
+}
+
+/*******************************************
+BUTTONS
+*******************************************/
+
+.reading-options-bt
+{
+    
+}
+
+/*******************************************
+READING OPTIONS - FONT
+*******************************************/
+
+.font-gara
+{  
+    font-family: 'EB Garamond', serif;
+}
+
+.font-bask
+{
+    font-family: 'Libre Baskerville', serif;
+}
+
+.font-open
+{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.font-robo
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-aria
+{
+    font-family: 'Arial', sans-serif;
+}
+
+.font-time
+{
+    font-family: 'Times New Roman', sans-serif;
+}
+
+/*******************************************
+READING OPTIONS - FONT SIZE
+*******************************************/
+
+.font-xs
+{
+    font-size: 1em;
+}
+
+.font-sm
+{
+    font-size: 1.2em;
+}
+
+.font-nm
+{
+    font-size: 1.4em;
+}
+
+.font-lg
+{
+    font-size: 1.8em;
+}
+
+.font-xl
+{
+    font-size: 2em;
+}
+
+/*******************************************
+READING OPTIONS - COLORS
+*******************************************/
+
+.color-black-white
+{
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.color-white-black
+{
+    background-color: #000000;
+    color: #FFFFFF;
+}

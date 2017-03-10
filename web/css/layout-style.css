@@ -2,10 +2,6 @@
 BODY & HTML 
 *******************************************/
 
-body
-{
-    
-}
 
 /*******************************************
 TOP HEADER 
@@ -87,8 +83,6 @@ CONTENT
 
 .content-bloc
 {
-    padding-top: 40px;
-    padding-bottom: 40px;
     min-height: 544px;
     background-color: #F7F7F7;
 }

@@ -29,7 +29,7 @@ class BootstrapForm extends Form
         $value = $this->getValue($name);
         
         return $this->surround(
-            '<input id="input-' . $name . '" type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control">'
+            '<input id="input-' . $name . '" type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control input-text-style">'
         );
     }
     
@@ -42,7 +42,7 @@ class BootstrapForm extends Form
         $value = $this->getValue($name);
         
         return $this->surround(
-            '<input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
+            '<span>Publier l\'article?</span><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
         );
     }
     
@@ -63,10 +63,9 @@ class BootstrapForm extends Form
         );
     }
     
-    public function select($name, $label, $options)
+    public function select($name, $options)
     {
-        $label = '<label>' . $label . '</label>';
-        $input = '<select class ="form-control" name="' . $name . '">';
+        $input = '<select class ="form-control input-text-style" name="' . $name . '">';
         foreach($options as $k => $v)
         {
             $attributes = '';
@@ -77,7 +76,7 @@ class BootstrapForm extends Form
             $input .= "<option value='" . $k . " - " . $attributes . "'>" . $v->getName() . "</option>";
         }
         $input .= '</select>';
-        return $this->surround($label . $input);
+        return $this->surround($input);
     }
     
     /**
@@ -88,7 +87,7 @@ class BootstrapForm extends Form
         $label = isset($label) ? $label : 'Envoyer';
         
         return $this->surround(
-            '<button type="submit" class="btn btn-primary">' . $label . '</button>'
+            '<button type="submit" class="btn btn-custom">' . $label . '</button>'
         );
     }
 }

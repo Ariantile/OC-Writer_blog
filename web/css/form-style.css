@@ -15,14 +15,80 @@ LOGIN
 
 .login-form
 {
-    width: 800px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-bottom: 2px solid #96A0A6;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+}
+
+.login-form input
+{
+    margin-bottom: 40px;
 }
 
 /*******************************************
 WRITE 
 *******************************************/
+
+.write-bloc-left, .write-bloc-right
+{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.writing-bloc
+{
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.write-bloc-right
+{
+    background-color: #2E2E2E;
+    min-height: 600px;
+}
+
+.write-form-options-bloc label
+{
+    color: #96A0A6;
+    background-color: #F6F6FA;
+    border-bottom: 1px solid #96A0A6;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+
+.first-top
+{
+    margin-top: 40px!important;
+}
+
+.write-form-title
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2B5695;
+    padding: 20px;
+}
+
+.write-form-title .form-group
+{
+    margin-bottom: 0px!important;
+}
 
 .write-form
 {
@@ -30,13 +96,72 @@ WRITE
     margin-left: auto;
     margin-right: auto;
     background-color: #FFFFFF;
-    padding: 40px;
+    padding: 20px;
     border-bottom: 2px solid #96A0A6;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .write-form .form-group
 {
+    margin-bottom: 0px!important;
+}
+
+.write-form-options
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-bottom: 2px solid #96A0A6;
+    margin-bottom: 10px;
+}
+
+.write-form-options-bloc .form-group
+{
+    margin-bottom: 0px!important;
+}
+
+.write-form-options span
+{
+    margin-right: 20px;
+}
+
+/*******************************************
+INPUT 
+*******************************************/
+
+.input-text-style
+{
+    border-radius: 0px;
+    border-bottom: 1px solid #96A0A6;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #F1F6FF;
+}
+
+.btn-custom
+{
+    background-color: #31ABBA;
+    color: #FFFFFF;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.btn-custom:hover
+{
+    background-color: #2B5695;
+    color: #31ABBA;
+}
+
+/*******************************************
+LABEL 
+*******************************************/
+
+.bloc-form label
+{
+    background-color: #2B5695;
+    width: 100%;
     margin-bottom: 0px!important;
 }
