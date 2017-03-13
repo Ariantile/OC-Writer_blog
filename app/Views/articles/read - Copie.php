@@ -3,11 +3,7 @@
     $date = date_create($dateP);   
 ?>   
 
-<button id="showRight">
-    <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
-</button>
-
-<div class="read-bloc-left">
+<div class="col-lg-8 index-bloc-left">
     
     <div class="read-title-bloc">
         <h2><?= $article->getTitle(); ?></h2>
@@ -21,13 +17,7 @@
     
 </div>
 
-<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-
-    <div class="top-side-menu"> 
-        <button id="closeRight">
-            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
-        </button>
-    </div>
+<div class="col-lg-4 read-bloc-right">
     
     <h2>Police du texte</h2>
     <div class="reading-font-bloc row">
@@ -53,7 +43,5 @@
         <button id="color-black-white" class="reading-options-bt reading-options-bt-active">Noir et blanc</button>
         <button id="color-white-black" class="reading-options-bt">Blanc et noir</button>
     </div>
-    
-</div>
 
-<script src="/writer/web/js/menu-script.js"></script>
+</div>

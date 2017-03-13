@@ -166,8 +166,7 @@ class ArticleEntity extends Entity
     
     public function getExtract()
     {
-        $html = '<p>' . substr($this->text, 0, 100) . '...</p>';
-        $html .= '<p> <a href="' .$this->getUrl() .  '"> voir la suite</a></p>';
+        $html = '<p>' . substr($this->text, 0, 400) . '...<a href="' .$this->getUrl() .  '" class="index-link-read"> Lire la suite</a></p>';
         return $html;
     }
     

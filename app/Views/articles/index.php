@@ -1,6 +1,10 @@
-<div class="col-lg-8 index-bloc-left">
+<?php
+    use Core\PaginateNav\PaginateNav;
+?>
 
-    <h2>Écrits publiés</h2>
+<div class="col-lg-8 col-xs-12 index-bloc-left">
+
+    <h2 class="index-title">Écrits publiés</h2>
     
     <?php
         if (!$articles['query'])
@@ -12,34 +16,47 @@
     ?>
     
     <?php foreach ($articles['query'] as $article): ?>
-    
+       
+        <?php
+            $date = new DateTime($article->getDatePublished());
+            $date = $date->format('d/m/Y');
+        ?>
+        
         <h2> 
             <a href="<?= $article->getUrl(); ?>">
-                <?= $article->getTitle(); ?>
+                <span class="index-articles-titles"><?= $article->getTitle(); ?></span>
             </a>
         </h2>
-        <h4><?= $article->getCategorie(); ?></h4>
+        
+        <h4>
+            <?= $article->getCategorie(); ?> - <?= $date ?>
+        </h4>
+        
         <?= $article->getExtract(); ?>
+        
+        <hr>
+        
     <?php endforeach; ?>
     
-    <div class="bloc-pagination-bt">
-        <?php
-            for ($i = 1; $i <= $articles['nbPage']; $i++){
-                if ($i == $articles['cp']){
-                    echo '<span class="bt-pagination-off">' . $i . '</span>';
-                } else {
-                    echo '<span class="bt-pagination-on"> <a href="/writer/web/article/index/' . $i . '">' . $i . '</a></span>';
-                }
-             }
+    <div class="bloc-pagination-bt row">
+        <?php 
+            $cpage  = $articles['cp'];
+            $nbPage = $articles['nbPage'];
+            $url    = '/writer/web/article/index/';
+            $pag    = new PaginateNav;
+            $pag->getPaginateNav($cpage, $nbPage, $url);
         ?>
     </div>
+    
+    <hr>
+    
 </div>
 
-<div class="col-lg-4 index-bloc-right">
-   
+<div class="col-lg-4 col-xs-12 index-bloc-right">
+    
     <label for="categories">Catégories</label>
     <div class="index-options-bloc">
-        <ul>
+        <ul class="index-cat-list">
             <?php foreach($categories as $categorie): ?>
                 <li>
                     <a href="<?= $categorie->getUrl(); ?>">
@@ -50,9 +67,38 @@
         </ul>
     </div>
     
-    <label for="recherche">Recherche</label>
-    <div class="index-options-bloc">
-        <?= $form->input('recherche', 'Rechercher...'); ?>
-        <?= $form->submit('Rechercher'); ?>
-    </div>
 </div>
+
+<button id="showRight" class="showRight-index">
+    <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+</button>
+
+<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+
+    <div class="top-side-menu"> 
+       
+        <button id="closeRight">
+            <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+        </button>
+        
+        <h2>Catégories</h2>
+        
+        <div class="index-options-bloc-sm">
+            <ul class="index-cat-list-sm">
+                <?php foreach($categories as $categorie): ?>
+                    <li>
+                        <a href="<?= $categorie->getUrl(); ?>">
+                            <?= $categorie->getName(); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        
+    </div>
+    
+</div>
+
+<script src="/writer/web/js/menu-script.js"></script>
+
+

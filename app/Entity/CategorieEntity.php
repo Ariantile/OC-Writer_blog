@@ -5,9 +5,9 @@ namespace App\Entity;
 use Core\Entity\Entity;
 
 /**
- *
+ * Entité des catégories
  */
-class CategorieEntity
+class CategorieEntity extends Entity
 {
     /**
      *

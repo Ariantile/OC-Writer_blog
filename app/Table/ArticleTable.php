@@ -50,7 +50,7 @@ class ArticleTable extends Table
     {
         $cArt = $this->countArticles();
         $nbArt = $cArt[0]->allArticles;
-        $perPage = 5;
+        $perPage = 4;
         $nbPage = ceil($nbArt/$perPage);
         
         if ($currentPage > 0 && $currentPage <= $nbPage){

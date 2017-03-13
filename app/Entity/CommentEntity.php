@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use Core\Entity\Entity;
+
 /**
  *
  */
-class CommentEntity
+class CommentEntity extends Entity
 {
     /**
      *
@@ -32,93 +34,86 @@ class CommentEntity
     /**
      * @var int
      */
-    protected $user_id;
+    protected $user;
 
     /**
      * @var int
      */
-    protected $article_id;
-
-
+    protected $article;
 
     /**
      * @return int
      */
-    public function getId():int
+    public function getId()
     {
-        // TODO: implement here
-        return 0;
+        return $this->id;
     }
 
     /**
      * @return string
      */
-    public function getComment():string
+    public function getComment()
     {
-        // TODO: implement here
-        return "";
+        return $this->comment;
     }
 
     /**
      * @return void
      */
-    public function setComment():void
+    public function setComment()
     {
-        // TODO: implement here
-        return null;
+        $this->comment = $comment;
+        return $this;
     }
 
     /**
      * @return boolean
      */
-    public function getFlag():boolean
+    public function getFlag()
     {
-        // TODO: implement here
-        return false;
+        return $this->flag;
     }
 
     /**
      * @return void
      */
-    public function setFlag():void
+    public function setFlag()
     {
-        // TODO: implement here
-        return null;
+        $this->flag = $flag;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getUser():int
+    public function getUser()
     {
-        // TODO: implement here
-        return 0;
+        return $this->user;
     }
 
     /**
      * @return void
      */
-    public function setUser():void
+    public function setUser()
     {
-        // TODO: implement here
-        return null;
+        $this->user = $user;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getArticle():int
+    public function getArticle()
     {
-        // TODO: implement here
-        return 0;
+        return $this->article;
     }
 
     /**
      * @return void
      */
-    public function setArticle():void
+    public function setArticle()
     {
-        // TODO: implement here
-        return null;
+        $this->article = $article;
+        return $this;
     }
 }

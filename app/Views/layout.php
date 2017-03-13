@@ -9,12 +9,15 @@
         </title> 
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Baskerville|Open+Sans|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Baskerville|Open+Sans|Roboto|Pacifico|Anton|Oswald" rel="stylesheet">
         <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/layout-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/index-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="/writer/web/menu/css/component.css">
         
         <script src="/writer/web/js/tinymce/tinymce.min.js"></script>
     </head>
@@ -62,32 +65,18 @@
                                     Écrire
                                 </a>
                             </li>
-                            <li>
-                                <a href="/writer/web/admin/articles">
-                                    <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                    Admin articles
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/writer/web/admin/categories">
-                                    <i class="fa fa-list" aria-hidden="true"></i>
-                                    Admin categories
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/writer/web/admin/commentaires">
-                                    <i class="fa fa-comments" aria-hidden="true"></i>
-                                    Admin commentaires
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/writer/web/admin/users">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
-                                    Admin utilisateurs
-                                </a>
-                            </li>
                         </ul>
-
+                        
+                        <div class="search-navbar-bloc">
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Recherche..." name="q">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -98,10 +87,8 @@
             </section>  
                 
             <footer class="row footer-bar">
-                <div class="col-xs-4">
-                    
-                </div>
-                <div class="col-xs-4 social-network-bloc">
+                
+                <div class="col-sm-6 social-network-bloc">
                     <p>Retrouvez moi sur les réseaux sociaux</p>
                     <hr>
                     <a href="/writer/web/accueil">
@@ -114,12 +101,40 @@
                         <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="col-xs-4">
-                    
+                
+                <div class="col-sm-6 admin-links-bloc">
+                    <p>Administration</p>
+                    <hr>
+                    <ul>
+                        <li>
+                            <a href="/writer/web/admin/articles/1">
+                                ARTICLES
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="/writer/web/admin/categories/1">
+                                CATEGORIES
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/writer/web/admin/commentaires/1">
+                                COMMENTAIRES
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/writer/web/admin/users/1">
+                                UTILISATEURS
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                
             </footer>
             <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src="/writer/web/js/reading-script.js"></script>
+            <script src="/writer/web/menu/js/classie.js"></script>
+            <script src="/writer/web/menu/js/modernizr.custom.js"></script>
     </body>
 </html>

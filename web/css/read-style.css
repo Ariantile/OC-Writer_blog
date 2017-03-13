@@ -6,46 +6,38 @@ CONTAINERS
 {
     color: #96A0A6;
     background-color: #ECECF0;
-    border-bottom: 1px solid #96A0A6;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 0px!important;
 }
 
 .reading-bloc
 {
     text-align: justify;
-    margin-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 2em;
+    padding: 20px;
+    border-top: 2px solid #96A0A6;
+    margin-bottom: 40px;
 }
 
-.reading-font-bloc
+.reading-font-bloc, .reading-size-bloc, .reading-color-bloc
 {
-    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-.reading-size-bloc
+.read-bloc-left
 {
-    
-}
-
-.reading-color-bloc
-{
-    
-}
-
-/*******************************************
-BUTTONS
-*******************************************/
-
-.reading-options-bt
-{
-    
+    min-height: 650px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /*******************************************
@@ -125,4 +117,51 @@ READING OPTIONS - COLORS
 {
     background-color: #000000;
     color: #FFFFFF;
+}
+
+/*******************************************
+BUTTONS
+*******************************************/
+
+.reading-options-bt
+{
+    min-width: 120px;
+    background-color: #31ABBA;
+    color: #FFFFFF;
+    border: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: 10px;
+    font-size: 11px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.reading-options-bt:hover
+{
+    background-color: #FFFFFF;
+    color: #2B5695;
+}
+
+.reading-options-bt-active
+{
+    background-color: #FFFFFF!important;
+    color: #2B5695!important;
+}
+
+
+/*******************************************
+MEDIA QUERIES
+*******************************************/
+
+@media screen and (max-width: 500px) {
+    .cbp-spmenu-vertical
+    {
+        width: 250px!important;
+        overflow: scroll;
+    }
 }

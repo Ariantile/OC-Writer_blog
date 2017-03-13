@@ -1,68 +1,36 @@
+/***********************************************************************************************
+LAYOUT CSS 
+***********************************************************************************************/
+
 /*******************************************
-BODY & HTML 
+FONTS FAMILY & STYLE
 *******************************************/
 
-
-/*******************************************
-TOP HEADER 
-*******************************************/
-
-.top-header-bloc
+.navbar-nav > li > a, .top-header-bloc, .social-network-bloc, .admin-links-bloc
 {
-    text-align: right;
-    background-color: #31ABBA;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
-}
-
-.top-header-links a
-{
-    color: #FFFFFF;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-family: 'Oswald', sans-serif;
 }
 
 /*******************************************
-LOGO 
+FONTS SIZES
 *******************************************/
 
-.logo-bloc
+.social-network-bloc p, .admin-links-bloc p
 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    background-color: #2B5695;
+    font-size: 20px;
 }
 
 /*******************************************
-MENU 
+FONTS COLORS 
 *******************************************/
 
-.navbar
+.top-header-links a:hover
 {
-    margin-bottom: 0px!important;
+    color: #2B5695;
+    text-decoration: none;
 }
 
-.menu-bar
-{
-    background-color: #31ABBA;
-    border: none!important;
-    border-radius: 0px!important;
-}
-
-.navbar-brand
-{
-    color: #FFFFFF!important;
-    background-color: #2B5695;
-}
-
-.logo:hover
-{
-    background-color: #032B54!important;
-}
-
-.navbar-nav a
+.navbar-brand, .navbar-nav a
 {
     color: #FFFFFF!important;
 }
@@ -72,51 +40,226 @@ MENU
     color: #31ABBA!important;
 }
 
+.top-header-links a, .social-network-bloc a, .social-network-bloc p, .admin-links-bloc p, .admin-links-bloc a
+{
+    color: #FFFFFF;
+}
+
+.social-network-bloc a:hover, .admin-links-bloc a:hover
+{
+    color: #31ABBA;
+    text-decoration: none;
+}
+
+/*******************************************
+BACKGROUND COLORS 
+*******************************************/
+
+.top-header-bloc
+{
+    background-color: #31ABBA;
+}
+
+.logo-bloc
+{
+    background-color: #2B5695;
+}
+
+.logo:hover
+{
+    background-color: #032B54!important;
+}
+
+.navbar-default .navbar-toggle .icon-bar
+{
+    background-color: #FFFFFF!important;
+}
+
+.navbar-toggle
+{
+    background-color: rgba(0, 0, 0, 0)!important;
+}
+
+.menu-bar
+{
+    background-color: #31ABBA;
+}
+
+.navbar-brand
+{
+    background-color: #2B5695;
+}
+
 .navbar-nav li:hover
 {
     background-color: #2B5695;
 }
 
-/*******************************************
-CONTENT 
-*******************************************/
-
 .content-bloc
 {
-    min-height: 544px;
     background-color: #F7F7F7;
 }
-
-/*******************************************
-FOOTER 
-*******************************************/
 
 .footer-bar
 {
     background-color: #2B5695;
-    height: 200px;
 }
 
-.social-network-bloc
+/*******************************************
+BORDER COLORS & SIZE 
+*******************************************/
+
+.navbar-toggle
 {
-    text-align: center;
+    border: 0px;
 }
 
-.social-network-bloc p
+/*******************************************
+BLOCS
+*******************************************/
+
+/***********
+TOP HEADER 
+***********/
+
+.top-header-bloc
 {
-    color: #FFFFFF;
-    font-size: 20px;
-    padding-top: 20px;
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
 }
 
-.social-network-bloc a
+.top-header-links a
 {
-    color: #FFFFFF;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.social-network-bloc a:hover
+/***********
+LOGO
+***********/
+
+.logo-bloc
 {
-    color: #31ABBA;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+/***********
+MENU
+***********/
+
+.nav
+{
+    font-weight: 400;
+}
+
+.navbar
+{
+    margin-bottom: 0px!important;
+}
+
+.menu-bar
+{
+    border: none!important;
+    border-radius: 0px!important;
+}
+
+.search-navbar-bloc
+{
+    float: right;
+}
+
+/***********
+CONTENT
+***********/
+
+.content-bloc
+{
+    min-height: 544px;
+}
+
+/***********
+FOOTER 
+***********/
+
+.footer-bar
+{
+    min-height: 200px;
+}
+
+.admin-links-bloc ul
+{
+    padding: 0;
+}
+
+.admin-links-bloc ul
+{
+    list-style-type: none;
+}
+
+.admin-links-bloc li
+{
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.social-network-bloc, .admin-links-bloc
+{
+    text-align: center;
+}
+
+.social-network-bloc p, .admin-links-bloc p
+{
+    padding-top: 20px;
+}
+
+.social-network-bloc a, .admin-links-bloc
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*******************************************
+PAGINATION
+*******************************************/
+
+.bloc-pagination-bt span
+{
+    float: left;
+    padding: 8px 16px;
+}
+
+.bloc-pagination-bt a:hover
+{
+    text-decoration: none;
+}
+
+/*******************************************
+MEDIA QUERIES
+*******************************************/
+
+@media screen and (max-width: 1000px) {
+    
+    .admin-links-bloc li
+    {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    
+    .social-network-bloc
+    {
+        padding-bottom: 20px;
+    }
+    
+    .admin-links-bloc p
+    {
+        border-top: 1px solid #FFF;
+    }
 }

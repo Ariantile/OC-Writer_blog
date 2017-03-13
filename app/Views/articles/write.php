@@ -15,10 +15,14 @@
     });
     
 </script> 
-
+    
+    <button id="showRight">
+        <i class="fa fa-cog fa-lg" aria-hidden="true"></i>
+    </button>
+    
     <form method="post">
         
-        <div class="col-lg-8 write-bloc-left">
+        <div class="write-bloc-left">
             <div class="writing-bloc">
                 <div class="write-form-title first-top">
                     <?= $form->input('title', 'Titre'); ?>
@@ -28,27 +32,33 @@
                 </div>
             </div>
         </div>
-        
-        <div class="col-lg-4 write-bloc-right">
-            <div class="write-form-options-bloc">
-               
-                <label class="first-top" for="categorie">Catégories</label>
-                <div class="write-form-options">
-                    <?= $form->select('categorie_id', $categories) ?>
-                    <hr>
-                    <?= $form->input('categorie_new', 'Nouvelle catégorie'); ?>
-                    <br>
-                    <?= $form->submit('Ajouter'); ?>
-                </div>
-                
-                <label for="input-publish">Publier</label>
-                <div class="write-form-options">
-                    <?= $form->checkbox('publish') ?>
-                    <hr>
-                    <?= $form->submit('Sauvegarder'); ?>
-                </div>
-                
-            </div>
-        </div>
 
-    </form>
+        <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+
+            <div class="top-side-menu"> 
+                <button id="closeRight" type="button">
+                    <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <h2>Catégories</h2>
+            <div class="reading-font-bloc row">
+                <?= $form->select('categorie_id', $categories) ?>
+                <hr>
+                <?= $form->input('categorie_new', 'Nouvelle catégorie'); ?>
+                <br>
+                <?= $form->submit('Ajouter'); ?>
+            </div>
+
+            <h2>Publier</h2>
+            <div class="reading-size-bloc row">
+                <?= $form->checkbox('publish') ?>
+                <hr>
+                <?= $form->submit('Sauvegarder'); ?>
+            </div>
+
+        </div>
+        
+</form>
+
+<script src="/writer/web/js/menu-script.js"></script>

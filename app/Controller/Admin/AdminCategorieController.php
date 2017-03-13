@@ -9,7 +9,13 @@ class AdminCategorieController extends AdminAppController
 {
     public function index()
     {
-        $categories = App::getInstance()->getTable('Categorie')->getAll();
+        if (isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+        } else {
+            $cp = 1;
+        }
+        
+        $categories = App::getInstance()->getTable('Categorie')->paginateCategories($cp);
         $this->render('admin.categories.index', compact('categories'));
     }
     
@@ -19,7 +25,7 @@ class AdminCategorieController extends AdminAppController
 
         if (!empty($_POST)){
             $result = $categorieTable->create([
-                'name' => $_POST['title']
+                'name' => $_POST['name']
             ]);
             if($result)
             {
@@ -47,7 +53,7 @@ class AdminCategorieController extends AdminAppController
             }
         }
 
-        $categorie = $articleTable->findWithCategorie($_GET['id']);
+        $categorie = $categorieTable->find($_GET['id']);
 
         $form = new BootstrapForm($categorie);
         

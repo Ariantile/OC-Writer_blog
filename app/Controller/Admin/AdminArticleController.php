@@ -9,31 +9,14 @@ class AdminArticleController extends AdminAppController
 {
     public function index()
     {
-        $articles = App::getInstance()->getTable('Article')->getAll();
-        $this->render('admin.articles.index', compact('articles'));
-    }
-    
-    public function add()
-    {
-        $articleTable = App::getInstance()->getTable('Article');
-
-        if (!empty($_POST)){
-            $result = $articleTable->create([
-                'title' => $_POST['title'],
-                'text'  => $_POST['text'],
-                'categorie_id' => $_POST['categorie_id']
-            ]);
-            if($result)
-            {
-                return $this->index();
-            }
+        if (isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+        } else {
+            $cp = 1;
         }
 
-        $categories = App::getInstance()->getTable('Categorie')->extract('id', 'name');
-
-        $form = new BootstrapForm($_POST);
-        
-        $this->render('admin.articles.add', compact('categorie', 'form'));
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp);
+        $this->render('admin.articles.index', compact('articles'));
     }
     
     public function edit()

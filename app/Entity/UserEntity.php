@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use Core\Entity\Entity;
+
 /**
  *
  */
-class UserEntity
+class UserEntity extends Entity
 {
     /**
      *
@@ -49,8 +51,7 @@ class UserEntity
      */
     public function getId()
     {
-        // TODO: implement here
-        return 0;
+        return $this->id;
     }
 
     /**
@@ -58,8 +59,7 @@ class UserEntity
      */
     public function getUsername()
     {
-        // TODO: implement here
-        return "";
+        return $this->username;
     }
 
     /**
@@ -67,8 +67,8 @@ class UserEntity
      */
     public function setUsername()
     {
-        // TODO: implement here
-        return null;
+        $this->username = $username;
+        return $this;
     }
 
     /**
@@ -76,8 +76,7 @@ class UserEntity
      */
     public function getPassword()
     {
-        // TODO: implement here
-        return "";
+        return $this->password;
     }
 
     /**
@@ -85,8 +84,8 @@ class UserEntity
      */
     public function setPassword()
     {
-        // TODO: implement here
-        return null;
+        $this->password = $password;
+        return $this;
     }
 
     /**
@@ -94,8 +93,7 @@ class UserEntity
      */
     public function getSalt()
     {
-        // TODO: implement here
-        return "";
+        return $this->salt;
     }
 
     /**
@@ -103,8 +101,8 @@ class UserEntity
      */
     public function setSalt()
     {
-        // TODO: implement here
-        return null;
+        $this->salt = $salt;
+        return $this;
     }
 
     /**
@@ -112,8 +110,7 @@ class UserEntity
      */
     public function getType()
     {
-        // TODO: implement here
-        return "";
+        return $this->type;
     }
 
     /**
@@ -121,8 +118,8 @@ class UserEntity
      */
     public function setType()
     {
-        // TODO: implement here
-        return null;
+        $this->type = $type;
+        return $this;
     }
 
     /**
@@ -130,8 +127,7 @@ class UserEntity
      */
     public function getStatus()
     {
-        // TODO: implement here
-        return "";
+        return $this->status;
     }
 
     /**
@@ -139,7 +135,7 @@ class UserEntity
      */
     public function setStatus()
     {
-        // TODO: implement here
-        return null;
+        $this->status = $status;
+        return $this;
     }
 }

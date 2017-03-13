@@ -1,0 +1,133 @@
+/*******************************************
+SIDE MENU
+*******************************************/
+
+/*******************************************
+FONTS FAMILY & STYLE
+*******************************************/
+
+.cbp-spmenu h2
+{
+   font-family: 'Pacifico', sans-serif; 
+}
+
+/*******************************************
+FONTS SIZES
+*******************************************/
+
+.cbp-spmenu h2, .top-side-menu
+{
+    font-size: 16px;
+}
+
+/*******************************************
+FONTS COLORS 
+*******************************************/
+
+.cbp-spmenu h2
+{
+    color: #96A0A6;
+}
+
+#showRight:hover
+{
+    color: #FFFFFF;
+}
+
+#closeRight
+{
+    color: #31ABBA;
+}
+
+#closeRight:hover
+{
+    color: #FFFFFF;
+}
+
+/*******************************************
+BACKGROUND COLORS 
+*******************************************/
+
+.cbp-spmenu h2
+{
+    background-color: #F6F6FA;
+}
+
+.top-side-menu
+{
+    background-color: #2B5695;
+}
+
+#showRight
+{
+    background-color: #31ABBA;
+}
+
+#showRight:hover
+{
+    background-color: #96A0A6;
+}
+
+#closeRight
+{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*******************************************
+BORDER COLORS & SIZE 
+*******************************************/
+
+.cbp-spmenu
+{
+    border-left: 1px solid #2E2E2E;
+}
+
+.cbp-spmenu h2
+{
+    border-bottom: 1px solid #96A0A6;
+}
+
+/*******************************************
+BLOCS
+*******************************************/
+
+.cbp-spmenu h2
+{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px!important;
+}
+
+.top-side-menu
+{
+    width: 100%;
+    padding-top: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px!important;
+}
+
+/*******************************************
+BUTTONS
+*******************************************/
+
+#showRight
+{
+    position: fixed;
+    right: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0px;
+    border-radius: 100%;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#closeRight
+{
+    border: 0px;
+}

@@ -1,6 +1,144 @@
+/***********************************************************************************************
+INDEX CSS 
+***********************************************************************************************/
+
 /*******************************************
-WRITE 
+FONTS FAMILY & STYLE
 *******************************************/
+
+.index-bloc-left p, .index-options-bloc, .index-options-bloc-sm
+{
+    font-family: 'Oswald', sans-serif;
+}
+
+.index-articles-titles, .index-title, .bloc-pagination-bt span, .index-link-read, .index-bloc-right label
+{
+    font-family: 'Pacifico', sans-serif;
+}
+
+.index-link-read
+{
+    font-style: italic;
+}
+
+/*******************************************
+FONTS SIZES
+*******************************************/
+
+.index-bloc-right label, .bloc-pagination-bt span
+{
+    font-size: 18px;
+}
+
+.index-cat-list, 
+{
+    font-size: 18px;
+}
+
+.index-cat-list-sm
+{
+    font-size: 15px;
+}
+
+/*******************************************
+FONTS COLORS 
+*******************************************/
+
+.index-cat-list a
+{
+    color: #2B5695;
+}
+
+.index-cat-list a:hover, .bloc-pagination-bt a:hover, .index-bloc-left a:hover
+{
+    color: #31ABBA;
+    text-decoration: none;
+}
+
+.index-bloc-right label
+{
+    color: #333;
+}
+
+.btn-custom
+{
+    color: #FFFFFF;
+}
+
+/*******************************************
+BACKGROUND COLORS 
+*******************************************/
+
+.index-bloc-left, .index-options-bloc
+{
+    background-color: #FFFFFF;
+}
+
+.index-options-bloc-sm
+{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.index-bloc-right label, .index-title
+{
+    background-color: #E9E9ED;
+}
+
+.bloc-form label
+{
+    background-color: #2B5695;
+}
+
+.btn-custom
+{
+    background-color: #31ABBA;
+}
+
+.input-text-style
+{
+    background-color: #F1F6FF;
+}
+
+/*******************************************
+BORDER COLORS & SIZE 
+*******************************************/
+
+.index-title
+{
+    border-bottom: 4px solid #96A0A6;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.index-bloc-right label
+{
+    border-bottom: 4px solid #96A0A6;
+}
+
+.index-options-bloc, .input-text-style
+{
+    border-bottom: 1px solid #96A0A6;
+}
+
+.index-bloc-left
+{
+    border-right: 1px solid #2E2E2E;
+}
+
+/*******************************************
+BLOCS 
+*******************************************/
+
+.index-title
+{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.index-bloc-left
+{
+    min-height: 650px;
+}
 
 .index-bloc-left, .index-bloc-right
 {
@@ -8,17 +146,8 @@ WRITE
     padding-right: 50px;
 }
 
-.index-bloc-right
-{
-    background-color: #2E2E2E;
-    min-height: 600px;
-}
-
 .index-bloc-right label
 {
-    color: #96A0A6;
-    background-color: #F6F6FA;
-    border-bottom: 1px solid #96A0A6;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -30,11 +159,9 @@ WRITE
 .index-options-bloc
 {
     width: 100%;
+    padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #FFFFFF;
-    padding: 20px;
-    border-bottom: 2px solid #96A0A6;
     margin-bottom: 10px;
 }
 
@@ -48,6 +175,12 @@ WRITE
     margin-top: 20px;
 }
 
+.index-options-bloc-sm ul
+{
+    list-style-type: none!important;
+    padding: 0;
+}
+
 /*******************************************
 INPUT 
 *******************************************/
@@ -55,25 +188,15 @@ INPUT
 .input-text-style
 {
     border-radius: 0px;
-    border-bottom: 1px solid #96A0A6;
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: #F1F6FF;
 }
 
 .btn-custom
 {
-    background-color: #31ABBA;
-    color: #FFFFFF;
-    border-radius: 0px;
     width: 100%;
-}
-
-.btn-custom:hover
-{
-    background-color: #2B5695;
-    color: #31ABBA;
+    border-radius: 0px;
 }
 
 /*******************************************
@@ -82,7 +205,64 @@ LABEL
 
 .bloc-form label
 {
-    background-color: #2B5695;
     width: 100%;
     margin-bottom: 0px!important;
+}
+
+/*******************************************
+PAGINATION
+*******************************************/
+
+.bloc-pagination-bt span
+{
+    float: left;
+    padding: 8px 16px;
+}
+
+/*******************************************
+MEDIA QUERIES
+*******************************************/
+
+@media screen and (min-width: 1201px) {
+   
+    .showRight-index
+    {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    
+    .index-bloc-left
+    {
+        border-right: 0px;
+    }
+    
+    .index-bloc-right
+    {
+        display: none!important;
+    }
+}
+
+@media screen and (max-width: 1155px) {
+    
+    .index-bloc-left
+    {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    .index-bloc-left, .index-bloc-right
+    {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .index-bloc-right
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
