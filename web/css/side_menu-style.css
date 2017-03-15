@@ -1,9 +1,19 @@
 /*******************************************
+
 SIDE MENU
+
+I       *** FONTS FAMILY & STYLE
+II      *** FONTS SIZES
+III     *** FONTS COLORS
+IV      *** BACKGROUND COLORS
+V       *** BORDER COLORS & SIZE
+VI      *** BLOCS
+VII     *** BUTTONS
+
 *******************************************/
 
 /*******************************************
-FONTS FAMILY & STYLE
+I   -   FONTS FAMILY & STYLE
 *******************************************/
 
 .cbp-spmenu h2
@@ -12,7 +22,7 @@ FONTS FAMILY & STYLE
 }
 
 /*******************************************
-FONTS SIZES
+II   -   FONTS SIZES
 *******************************************/
 
 .cbp-spmenu h2, .top-side-menu
@@ -21,7 +31,7 @@ FONTS SIZES
 }
 
 /*******************************************
-FONTS COLORS 
+III   -   FONTS COLORS 
 *******************************************/
 
 .cbp-spmenu h2
@@ -45,7 +55,7 @@ FONTS COLORS
 }
 
 /*******************************************
-BACKGROUND COLORS 
+IV   -   BACKGROUND COLORS 
 *******************************************/
 
 .cbp-spmenu h2
@@ -74,7 +84,7 @@ BACKGROUND COLORS
 }
 
 /*******************************************
-BORDER COLORS & SIZE 
+V   -   BORDER COLORS & SIZE 
 *******************************************/
 
 .cbp-spmenu
@@ -88,7 +98,7 @@ BORDER COLORS & SIZE
 }
 
 /*******************************************
-BLOCS
+VI   -   BLOCS
 *******************************************/
 
 .cbp-spmenu h2
@@ -110,7 +120,7 @@ BLOCS
 }
 
 /*******************************************
-BUTTONS
+VII   -   BUTTONS
 *******************************************/
 
 #showRight

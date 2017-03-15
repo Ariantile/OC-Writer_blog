@@ -10,11 +10,12 @@
         
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Baskerville|Open+Sans|Roboto|Pacifico|Anton|Oswald" rel="stylesheet">
-        <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/write-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/layout-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/index-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
-        <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">   
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
         
         <link rel="stylesheet" href="/writer/web/menu/css/component.css">

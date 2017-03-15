@@ -1,48 +1,39 @@
-/*******************************************
-CONTAINERS
-*******************************************/
+/***********************************************************************************************
 
-.read-title-bloc
-{
-    color: #96A0A6;
-    background-color: #ECECF0;
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    margin-top: 40px;
-    margin-bottom: 0px!important;
-}
+READ CSS 
 
-.reading-bloc
-{
-    text-align: justify;
-    padding: 20px;
-    border-top: 2px solid #96A0A6;
-    margin-bottom: 40px;
-}
+I       *** FONTS FAMILY & STYLE
+I.1     *** FONTS FAMILY & STYLE > READING OPTIONS
+II      *** FONTS SIZES
+II.1    *** FONTS SIZES > READING OPTIONS
+III     *** FONTS COLORS
+III.1   *** FONTS COLORS > READING OPTIONS
+IV      *** BACKGROUND COLORS
+IV.1    *** BACKGROUND COLORS > READING OPTIONS
+V       *** BORDER COLORS & SIZE
+VI      *** BLOCS
+VII     *** BUTTONS
+VIII    *** MEDIA QUERIES
 
-.reading-font-bloc, .reading-size-bloc, .reading-color-bloc
-{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.read-bloc-left
-{
-    min-height: 650px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+***********************************************************************************************/
 
 /*******************************************
-READING OPTIONS - FONT
+I   -   FONTS FAMILY & STYLE
 *******************************************/
+
+.reading-options-bt, .read-title-bloc small
+{
+    font-family: 'Oswald', sans-serif;
+}
+
+.read-title-bloc h2
+{
+    font-family: 'Pacifico', sans-serif;
+}
+
+/*********************************
+I.1   -   READING OPTIONS
+*********************************/
 
 .font-gara
 {  
@@ -75,8 +66,17 @@ READING OPTIONS - FONT
 }
 
 /*******************************************
-READING OPTIONS - FONT SIZE
+II   -   FONTS SIZES
 *******************************************/
+
+.reading-options-bt
+{
+    font-size: 11px;
+}
+
+/*********************************
+II.1   -   READING OPTIONS
+*********************************/
 
 .font-xs
 {
@@ -104,30 +104,136 @@ READING OPTIONS - FONT SIZE
 }
 
 /*******************************************
-READING OPTIONS - COLORS
+III   -   FONTS COLORS 
 *******************************************/
+
+.read-title-bloc
+{
+    color: #96A0A6;
+}
+
+.reading-options-bt
+{
+    color: #FFFFFF;
+}
+
+.reading-options-bt:hover
+{
+    color: #2B5695;
+}
+
+.reading-options-bt-active
+{
+    color: #2B5695!important;
+}
+
+/*********************************
+III.1   -   READING OPTIONS
+*********************************/
 
 .color-black-white
 {
     color: #000000;
+}
+
+.color-white-black
+{
+    color: #FFFFFF;
+}
+
+/*******************************************
+IV   -   BACKGROUND COLORS 
+*******************************************/
+
+.read-title-bloc
+{
+    background-color: #ECECF0;
+}
+
+.reading-options-bt
+{
+    background-color: #31ABBA;
+}
+
+.reading-options-bt:hover
+{
+    background-color: #FFFFFF;
+}
+
+.reading-options-bt-active
+{
+    background-color: #FFFFFF!important;
+}
+
+/*********************************
+IV.1   -   READING OPTIONS
+*********************************/
+
+.color-black-white
+{
     background-color: #FFFFFF;
 }
 
 .color-white-black
 {
     background-color: #000000;
-    color: #FFFFFF;
 }
 
 /*******************************************
-BUTTONS
+V   -   BORDER COLORS & SIZE 
+*******************************************/
+
+.reading-bloc
+{
+    border-top: 2px solid #96A0A6;
+}
+
+/*******************************************
+VI   -   BLOCS
+*******************************************/
+
+.read-title-bloc
+{
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-top: 40px;
+    margin-bottom: 0px!important;
+}
+
+.reading-bloc
+{
+    text-align: justify;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.reading-font-bloc, .reading-size-bloc, .reading-color-bloc
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.read-bloc-left
+{
+    min-height: 650px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/*******************************************
+IIV   -   BUTTONS
 *******************************************/
 
 .reading-options-bt
 {
     min-width: 120px;
-    background-color: #31ABBA;
-    color: #FFFFFF;
     border: 0px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -137,25 +243,10 @@ BUTTONS
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: 10px;
-    font-size: 11px;
-    font-family: 'Oswald', sans-serif;
 }
-
-.reading-options-bt:hover
-{
-    background-color: #FFFFFF;
-    color: #2B5695;
-}
-
-.reading-options-bt-active
-{
-    background-color: #FFFFFF!important;
-    color: #2B5695!important;
-}
-
 
 /*******************************************
-MEDIA QUERIES
+VIII   -   MEDIA QUERIES
 *******************************************/
 
 @media screen and (max-width: 500px) {

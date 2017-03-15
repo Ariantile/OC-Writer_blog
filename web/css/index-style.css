@@ -1,9 +1,22 @@
 /***********************************************************************************************
+
 INDEX CSS 
+
+I       *** FONTS FAMILY & STYLE
+II      *** FONTS SIZES
+III     *** FONTS COLORS
+IV      *** BACKGROUND COLORS
+V       *** BORDER COLORS & SIZE
+VI      *** BLOCS
+VII     *** INPUT
+VIII    *** LABEL
+IX      *** PAGINATION
+X       *** MEDIA QUERIES
+
 ***********************************************************************************************/
 
 /*******************************************
-FONTS FAMILY & STYLE
+I   -   FONTS FAMILY & STYLE
 *******************************************/
 
 .index-bloc-left p, .index-options-bloc, .index-options-bloc-sm
@@ -22,12 +35,17 @@ FONTS FAMILY & STYLE
 }
 
 /*******************************************
-FONTS SIZES
+II   -   FONTS SIZES
 *******************************************/
 
 .index-bloc-right label, .bloc-pagination-bt span
 {
     font-size: 18px;
+}
+
+.index-bloc-right label
+{
+    font-weight: 400;
 }
 
 .index-cat-list, 
@@ -41,7 +59,7 @@ FONTS SIZES
 }
 
 /*******************************************
-FONTS COLORS 
+III   -   FONTS COLORS 
 *******************************************/
 
 .index-cat-list a
@@ -60,13 +78,8 @@ FONTS COLORS
     color: #333;
 }
 
-.btn-custom
-{
-    color: #FFFFFF;
-}
-
 /*******************************************
-BACKGROUND COLORS 
+IV   -   BACKGROUND COLORS 
 *******************************************/
 
 .index-bloc-left, .index-options-bloc
@@ -89,18 +102,8 @@ BACKGROUND COLORS
     background-color: #2B5695;
 }
 
-.btn-custom
-{
-    background-color: #31ABBA;
-}
-
-.input-text-style
-{
-    background-color: #F1F6FF;
-}
-
 /*******************************************
-BORDER COLORS & SIZE 
+V   -   BORDER COLORS & SIZE 
 *******************************************/
 
 .index-title
@@ -115,18 +118,13 @@ BORDER COLORS & SIZE
     border-bottom: 4px solid #96A0A6;
 }
 
-.index-options-bloc, .input-text-style
+.index-options-bloc
 {
     border-bottom: 1px solid #96A0A6;
 }
 
-.index-bloc-left
-{
-    border-right: 1px solid #2E2E2E;
-}
-
 /*******************************************
-BLOCS 
+VI   -   BLOCS 
 *******************************************/
 
 .index-title
@@ -182,25 +180,7 @@ BLOCS
 }
 
 /*******************************************
-INPUT 
-*******************************************/
-
-.input-text-style
-{
-    border-radius: 0px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-
-.btn-custom
-{
-    width: 100%;
-    border-radius: 0px;
-}
-
-/*******************************************
-LABEL 
+VIII   -   LABEL 
 *******************************************/
 
 .bloc-form label
@@ -210,7 +190,7 @@ LABEL
 }
 
 /*******************************************
-PAGINATION
+IX   -   PAGINATION
 *******************************************/
 
 .bloc-pagination-bt span
@@ -220,7 +200,7 @@ PAGINATION
 }
 
 /*******************************************
-MEDIA QUERIES
+X   -   MEDIA QUERIES
 *******************************************/
 
 @media screen and (min-width: 1201px) {

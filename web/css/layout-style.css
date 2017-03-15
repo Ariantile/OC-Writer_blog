@@ -1,9 +1,26 @@
 /***********************************************************************************************
-LAYOUT CSS 
+
+LAYOUT CSS
+
+I       ***   FONTS FAMILY & STYLE
+II      ***   FONTS SIZES
+III     ***   FONTS COLORS 
+IV      ***   BACKGROUND COLORS 
+V       ***   BORDER COLORS & SIZE 
+VI      ***   BLOCS
+VI.1    ***   BLOCS > TOP HEADER
+VI.2    ***   BLOCS > LOGO
+VI.3    ***   BLOCS > MENU
+VI.4    ***   BLOCS > CONTENT
+VI.6    ***   BLOCS > FOOTER
+VII     ***   PAGINATION
+VIII    ***   BOX SHADOW
+IX      ***   MEDIA QUERIES
+
 ***********************************************************************************************/
 
 /*******************************************
-FONTS FAMILY & STYLE
+I   -   FONTS FAMILY & STYLE
 *******************************************/
 
 .navbar-nav > li > a, .top-header-bloc, .social-network-bloc, .admin-links-bloc
@@ -12,7 +29,7 @@ FONTS FAMILY & STYLE
 }
 
 /*******************************************
-FONTS SIZES
+II   -   FONTS SIZES
 *******************************************/
 
 .social-network-bloc p, .admin-links-bloc p
@@ -21,7 +38,7 @@ FONTS SIZES
 }
 
 /*******************************************
-FONTS COLORS 
+III   -   FONTS COLORS 
 *******************************************/
 
 .top-header-links a:hover
@@ -51,18 +68,28 @@ FONTS COLORS
     text-decoration: none;
 }
 
-/*******************************************
-BACKGROUND COLORS 
-*******************************************/
-
-.top-header-bloc
+.btn-custom
 {
-    background-color: #31ABBA;
+    color: #FFFFFF;
 }
 
-.logo-bloc
+.btn-custom:hover
+{
+    color: #2B5695;
+}
+
+/*******************************************
+IV   -   BACKGROUND COLORS 
+*******************************************/
+
+body
 {
     background-color: #2B5695;
+}
+
+.top-header-bloc, .menu-bar, .btn-custom
+{
+    background-color: #31ABBA;
 }
 
 .logo:hover
@@ -80,17 +107,7 @@ BACKGROUND COLORS
     background-color: rgba(0, 0, 0, 0)!important;
 }
 
-.menu-bar
-{
-    background-color: #31ABBA;
-}
-
-.navbar-brand
-{
-    background-color: #2B5695;
-}
-
-.navbar-nav li:hover
+.footer-bar, .navbar-brand, .logo-bloc, .navbar-nav li:hover
 {
     background-color: #2B5695;
 }
@@ -100,13 +117,13 @@ BACKGROUND COLORS
     background-color: #F7F7F7;
 }
 
-.footer-bar
+.btn-custom:hover
 {
-    background-color: #2B5695;
+    background-color: #96A0A6;
 }
 
 /*******************************************
-BORDER COLORS & SIZE 
+V   -   BORDER COLORS & SIZE 
 *******************************************/
 
 .navbar-toggle
@@ -114,13 +131,23 @@ BORDER COLORS & SIZE
     border: 0px;
 }
 
+.btn-custom
+{
+    border-radius: 0px;
+}
+
 /*******************************************
-BLOCS
+VI   -   BLOCS
 *******************************************/
 
-/***********
-TOP HEADER 
-***********/
+.btn-custom
+{
+    width: 100%;
+}
+
+/*********************************
+VI.1   -   TOP HEADER
+*********************************/
 
 .top-header-bloc
 {
@@ -136,9 +163,9 @@ TOP HEADER
     padding-right: 10px;
 }
 
-/***********
-LOGO
-***********/
+/*********************************
+VI.2   -   LOGO
+*********************************/
 
 .logo-bloc
 {
@@ -147,9 +174,9 @@ LOGO
     padding-left: 20px;
 }
 
-/***********
-MENU
-***********/
+/*********************************
+VI.3   -   MENU
+*********************************/
 
 .nav
 {
@@ -172,18 +199,18 @@ MENU
     float: right;
 }
 
-/***********
-CONTENT
-***********/
+/*********************************
+VI.4   -   CONTENT
+*********************************/
 
 .content-bloc
 {
-    min-height: 544px;
+    
 }
 
-/***********
-FOOTER 
-***********/
+/*********************************
+VI.6   -   FOOTER
+*********************************/
 
 .footer-bar
 {
@@ -224,7 +251,7 @@ FOOTER
 }
 
 /*******************************************
-PAGINATION
+VII   -   PAGINATION
 *******************************************/
 
 .bloc-pagination-bt span
@@ -239,7 +266,18 @@ PAGINATION
 }
 
 /*******************************************
-MEDIA QUERIES
+VIII   -   BOX SHADOW
+*******************************************/
+
+.shadow-box-class
+{
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*******************************************
+IX   -   MEDIA QUERIES
 *******************************************/
 
 @media screen and (max-width: 1000px) {
@@ -261,5 +299,13 @@ MEDIA QUERIES
     .admin-links-bloc p
     {
         border-top: 1px solid #FFF;
+    }
+}
+
+@media screen and (max-width: 285px) {
+    
+    .logo-bloc img
+    {
+        width: 185px;
     }
 }

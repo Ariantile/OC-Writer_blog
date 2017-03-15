@@ -1,0 +1,347 @@
+/***********************************************************************************************
+
+INDEX CSS 
+
+I       *** FONTS FAMILY & STYLE
+II      *** FONTS SIZES
+III     *** FONTS COLORS
+IV      *** BACKGROUND COLORS
+V       *** BORDER COLORS & SIZE
+VI      *** BLOCS
+VI.1    *** BLOCS > ANIMATE BUTTON 
+VII     *** LABEL
+VIII    *** MEDIA QUERIES
+
+***********************************************************************************************/
+
+/*******************************************
+I   -   FONTS FAMILY & STYLE
+*******************************************/
+
+.write-bloc-right h2, .write-bloc-right h4
+{
+    font-family: 'Pacifico', sans-serif;
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    font-family: 'Open sans', sans-serif;
+    text-align: center;
+}
+
+/*******************************************
+II   -   FONTS SIZES
+*******************************************/
+
+.write-bloc-right h2
+{
+    font-size: 18px;
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    font-size: 12px;
+}
+
+/*******************************************
+III   -   FONTS COLORS 
+*******************************************/
+
+.write-form-options-bloc label
+{
+    color: #96A0A6;
+}
+
+.write-bloc-right h2
+{
+    color: #333;
+}
+
+.mce-btn.mce-disabled button i
+{
+    color: #96A0A6!important;
+}
+
+.mce-btn button:hover i, .mce-btn button:hover span
+{
+    color: #fff!important;
+}
+
+.mce-btn button i, .mce-btn button span
+{
+    color: #31ABBA!important;
+    text-shadow: none;
+}
+
+.mce-wordcount, i.mce-i-resize, .mce-path-item
+{
+    color: #333!important;
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    color: #FFFFFF;
+}
+
+/*******************************************
+IV   -   BACKGROUND COLORS 
+*******************************************/
+
+.write-form-options-bloc label
+{
+    background-color: #E9E9ED;
+}
+
+.bloc-form label
+{
+    background-color: #2B5695;
+}
+
+.write-form, .write-form-options
+{
+    background-color: #FFFFFF;
+}
+
+.write-bloc-right h2
+{
+    background-color: #E9E9ED;
+}
+
+.write-bloc-option
+{
+    background-color: #FFFFFF;
+}
+
+.mce-panel, .write-form-title
+{
+    background-color: #E9E9ED!important;
+}
+
+.mce-btn button 
+{
+    background-color: #E9E9ED!important;
+}
+
+/*******************************************
+V   -   BORDER COLORS & SIZE 
+*******************************************/
+
+.write-form-options-bloc label, 
+{
+    border-bottom: 1px solid #96A0A6;
+}
+
+.write-form, .write-form-options
+{
+    border-bottom: 2px solid #96A0A6;
+}
+
+.mce-panel
+{
+    border: 0px!important;
+}
+
+.write-bloc-right h2
+{
+    border-bottom: 4px solid #96A0A6;
+}
+
+.write-bloc-option
+{
+    border-bottom: 1px solid #96A0A6;
+}
+
+.mce-btn
+{
+    border: 0px!important;
+}
+
+.mce-btn button:hover .mce-caret
+{
+    border-top: 4px solid #FFFFFF!important;
+}
+
+.mce-btn-group:not(:first-child) 
+{
+    border-left: none!important;
+}
+
+.mce-caret
+{
+    border-top: 4px solid #31ABBA!important;
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    border: 1px solid #E9E9ED;
+}
+
+/*******************************************
+VI   -   BLOCS 
+*******************************************/
+
+.write-bloc-left
+{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
+.write-bloc-option
+{
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.write-form-options-bloc label
+{
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+
+.first-top
+{
+    margin-top: 40px!important;
+}
+
+.write-form, .write-form-options, .write-form-title
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    
+}
+
+.write-form, .write-form-options
+{
+    margin-bottom: 10px;
+}
+
+.write-form-options-bloc .form-group, .write-form .form-group, .write-form-title .form-group
+{
+    margin-bottom: 0px!important;
+}
+
+.write-form-options span
+{
+    margin-right: 20px;
+}
+
+.write-form-writing-area .form-group
+{
+    margin-bottom: 0px!important;
+}
+
+.write-bloc-right
+{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.write-bloc-right h2
+{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+}
+
+.write-option-notfirst
+{
+    margin-top: 30px;
+}
+
+.mce-btn.mce-disabled button
+{
+    opacity: 1!important;
+}
+
+.checkbox-custom
+{
+    visibility: hidden;
+    display:block;
+    height:0;
+    width:0;
+    position:absolute;
+    overflow:hidden;
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 125px;
+    border-radius: 8px;
+}
+
+.publish-bloc
+{
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.publish-bloc div
+{
+    display: inline;
+}
+
+.publish-bloc .checkbox-replace-publish
+{
+    margin-right: 5px;
+}
+
+/*********************************
+VI.1   -   ANIMATE BUTTON
+*********************************/
+
+@keyframes checkbox-on-off {
+    from {background-color: #31ABBA;}
+    to {background-color: #96A0A6;}
+}
+
+@keyframes checkbox-off-on {
+    from {background-color: #96A0A6;}
+    to {background-color: #31ABBA;}
+}
+
+.checkbox-replace-comment, .checkbox-replace-publish
+{
+    background-color: #96A0A6;
+    animation-name: checkbox-on-off;
+    animation-duration: 0.5s;
+}
+
+#input-publish:checked + .checkbox-replace-publish, #input-comment:checked + .checkbox-replace-comment {
+    background-color: #31ABBA;
+    animation-name: checkbox-off-on;
+    animation-duration: 0.5s;
+}
+
+/*******************************************
+VII   -   LABEL 
+*******************************************/
+
+.bloc-form label
+{
+    width: 100%;
+    margin-bottom: 0px!important;
+}
+
+/*******************************************
+VIII   -   MEDIA QUERIES
+*******************************************/

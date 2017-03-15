@@ -9,6 +9,8 @@ namespace Core\Form;
 class BootstrapForm extends Form
 {
     /**
+     * Balise html entourant les input
+     *
      * @param $html string Code HTML
      * @return string
      */
@@ -18,6 +20,8 @@ class BootstrapForm extends Form
     }
     
     /**
+     * Génère et retourne un input
+     *
      * @param $name string
      * @param $placeholder
      * @param array $options
@@ -34,19 +38,23 @@ class BootstrapForm extends Form
     }
     
     /**
+     * Génère et retourne un input de type checkbox
+     *
      * @param $name string
      * @return string
      */
-    public function checkbox($name)
+    public function checkbox($name, $label)
     {
         $value = $this->getValue($name);
         
         return $this->surround(
-            '<span>Publier l\'article?</span><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
+            '<label for="input-' . $name . '"><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '" class="checkbox-custom" "><span class="checkbox-replace-' . $name . '">' . $label . '</span></label>'
         );
     }
     
     /**
+     * Génère et retourne une textarea
+     *
      * @param $name string
      * @param array $options
      * @return string
@@ -63,9 +71,17 @@ class BootstrapForm extends Form
         );
     }
     
-    public function select($name, $options)
+    /**
+     * Génère et retourne une un select
+     *
+     * @param $name string
+     * @param array $options
+     * @return string
+     */
+    public function select($name, $options, $placeholder)
     {
-        $input = '<select class ="form-control input-text-style" name="' . $name . '">';
+        $input =  '<select class ="form-control input-text-style" name="' . $name . '">';
+        $input .= "<option selected value>" . $placeholder . "</option>";
         foreach($options as $k => $v)
         {
             $attributes = '';
@@ -80,6 +96,9 @@ class BootstrapForm extends Form
     }
     
     /**
+     * Génère et retourne un bouton submit
+     *
+     * @param $label string
      * @return string
      */
     public function submit($label = null)

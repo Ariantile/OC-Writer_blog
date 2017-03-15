@@ -9,11 +9,15 @@ namespace Core\Form;
 class Form
 {
     /**
+     * Données du formulaire
+     *
      * @var array Data du formulaire
      */
     private $data;
     
     /**
+     * Balise html entourant les input
+     *
      * @var string Tag entourant les champs
      */
     public $surround = 'p';
@@ -27,6 +31,8 @@ class Form
     }
     
     /**
+     * Génère et retourne les balise html entourant les input
+     *
      * @param $html string Code HTML
      * @return string
      */
@@ -44,6 +50,8 @@ class Form
     }
     
     /**
+     * Génère et retourne un input
+     *
      * @param $name string
      * @param $placeholder
      * @param array $options
@@ -60,6 +68,9 @@ class Form
     }
     
     /**
+     * Génère et retourne un bouton submit
+     *
+     * @param $label string
      * @return string
      */
     public function submit()

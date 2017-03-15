@@ -2,8 +2,20 @@
 
 namespace Core\PaginateNav;
 
+/**
+ * Class PaginateNav
+ * Permet de gérer la pagination.
+ */
 class PaginateNav
 {
+    
+    /**
+     * Génère et affiche les boutons de pagination
+     *
+     * @param int $cpage Page courrante
+     * @param int $nbPage Nombre de page total
+     * @param string $url Url servant à la génération des liens de pagination
+     */
     public function getPaginateNav($cpage, $nbPage, $url)
     {
         if ($cpage <= 2 || $nbPage < 5) {

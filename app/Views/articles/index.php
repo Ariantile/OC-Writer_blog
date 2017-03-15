@@ -2,7 +2,7 @@
     use Core\PaginateNav\PaginateNav;
 ?>
 
-<div class="col-lg-8 col-xs-12 index-bloc-left">
+<div class="col-lg-8 col-xs-12 index-bloc-left shadow-box-class">
 
     <h2 class="index-title">Écrits publiés</h2>
     

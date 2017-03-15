@@ -4,9 +4,20 @@ namespace Core\Table;
 
 use Core\Database;
 
+/**
+ * Class Table
+ * Class mère des tables gérant les requêtes
+ */
 class Table
 {
+    /**
+     * Table instancié
+     */
     protected $table;
+    
+    /**
+     * Instance d'accès à la base de donnée
+     */
     protected $db;
     
     public function __construct(Database $db)
@@ -21,16 +32,25 @@ class Table
         }
     }
     
+    /**
+     * Récupère toutes les données d'une table
+     */
     public function getAll()
     {
         return $this->query('SELECT * FROM ' . $this->table);
     }
     
+    /**
+     * Récupère toutes les données d'une table via une id
+     */
     public function find($id)
     {
         return $this->query("SELECT * FROM " . $this->table . "WHERE id = ?", $id, true);
     }
     
+    /**
+     * Mise à jour des données via une id
+     */
     public function update($id, $fields)
     {
         $sql_slice = [];
@@ -48,6 +68,9 @@ class Table
         return $this->query("UPDATE {$this->table} SET " . $sql_part . " WHERE id = ?", $attributes, true);
     }
     
+    /**
+     * Insertion de donnée dans une table
+     */
     public function create($fields)
     {
         $sql_slice = [];
@@ -64,6 +87,9 @@ class Table
         return $this->query("INSERT INTO {$this->table} SET $sql_part", $attributes, true);
     }
     
+    /**
+     * Suppréssion de donnée dans une table via une id
+     */
     public function delete($id)
     {
         return $this->query("DELETE FROM {$this->table} WHERE  id = ?", [$id], true);
