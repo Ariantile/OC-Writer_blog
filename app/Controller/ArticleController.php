@@ -25,20 +25,50 @@ class ArticleController extends AppController
         
         $form = new BootstrapForm($_POST);
         
-        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp);
+        $type = 'all';
+        
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp, $type);
         $categories = App::getInstance()->getTable('Categorie')->getAll();
         
         $this->render('articles.index', compact('articles', 'categories', 'form'));
     }
     
-    public function searchResults()
+    public function indexbycategory()
     {
+        if (isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+        } else {
+            $cp = 1;
+        }
         
+        $form = new BootstrapForm($_POST);
+        
+        $type = 'cat';
+        $catId = $_GET['id'];
+        
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp , $type, $_GET['id']);
+        $categories = App::getInstance()->getTable('Categorie')->getAll();
+        
+        $this->render('articles.index', compact('articles', 'categories', 'form', 'type', 'catId'));
     }
     
-    public function indexByCategory()
+    public function searchresults()
     {
+        if (isset($_GET['cp'])){
+            $cp = $_GET['cp'];
+        } else {
+            $cp = 1;
+        }
         
+        $form = new BootstrapForm($_POST);
+        
+        $type = 'search';
+        $key = $_GET['key'];
+        
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp , $type, null , $_GET['key']);
+        $categories = App::getInstance()->getTable('Categorie')->getAll();
+        
+        $this->render('articles.index', compact('articles', 'categories', 'form', 'type', 'key'));
     }
     
     public function read()

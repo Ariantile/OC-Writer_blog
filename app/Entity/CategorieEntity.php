@@ -58,7 +58,6 @@ class CategorieEntity extends Entity
     
     public function getUrl()
     {
-        return 'index.php?p=categorie&id=' . $this->id;
+        return '/writer/web/article/index/cat/' . $this->id . '/1';
     }
-
 }

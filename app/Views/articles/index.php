@@ -37,12 +37,18 @@
         <hr>
         
     <?php endforeach; ?>
-    
+
     <div class="bloc-pagination-bt row">
         <?php 
             $cpage  = $articles['cp'];
             $nbPage = $articles['nbPage'];
-            $url    = '/writer/web/article/index/';
+            if (isset($type) && $type == 'search' && isset($key)) {
+                $url    = '/writer/web/article/recherche/' . $key . '/';
+            } else if(isset($type) && $type == 'cat' && isset($catId)) {
+                $url    = '/writer/web/article/index/cat/' . $catId . '/';
+            } else {
+                $url    = '/writer/web/article/index/';
+            }    
             $pag    = new PaginateNav;
             $pag->getPaginateNav($cpage, $nbPage, $url);
         ?>
@@ -100,5 +106,3 @@
 </div>
 
 <script src="/writer/web/js/menu-script.js"></script>
-
-

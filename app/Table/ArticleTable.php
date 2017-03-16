@@ -23,9 +23,9 @@ class ArticleTable extends Table
             ORDER BY article.datePublished DESC
         ");
     }
-    
+ 
     /*
-     * Récupères les écrits d'une catégorie
+     * Récupères un écrit avec sa catégorie
      * @return array
      */
     public function findWithCategorie($id)
@@ -38,6 +38,10 @@ class ArticleTable extends Table
         ", [$id], true);
     }
     
+    /*
+     * Compte tous les articles
+     * @return int
+     */
     public function countArticles()
     {
         return $this->query("
@@ -46,9 +50,45 @@ class ArticleTable extends Table
         ");
     }
     
-    public function paginateArticles($currentPage)
+    /*
+     * Compte tous les articles d'une catégorie
+     * @return int
+     */
+    public function countArticlesByCategorie($id)
     {
-        $cArt = $this->countArticles();
+        return $this->query("
+            SELECT COUNT(id) as allArticles 
+            FROM Article
+            WHERE categorie_id = ?
+        ", [$id]);
+    }
+    
+    /*
+     * Compte tous les articles d'une recherche
+     * @return int
+     */
+    public function countArticlesSearch($key)
+    {
+        return $this->query("
+            SELECT COUNT(article.id) as allArticles
+            FROM Article
+            LEFT JOIN categorie as categorie 
+            ON categorie_id = categorie.id
+            WHERE article.title LIKE '%" . $key . "%'
+            OR categorie.name LIKE '%" . $key . "%'
+        ", [$key]);
+    }
+    
+    public function paginateArticles($currentPage, $type, $id = null, $key = null)
+    {
+        if ($type == 'all') {
+            $cArt = $this->countArticles();
+        } else if ($type == 'cat') {
+            $cArt = $this->countArticlesByCategorie($id);
+        } else if ($type == 'search') {
+            $cArt = $this->countArticlesSearch($key);
+        }
+        
         $nbArt = $cArt[0]->allArticles;
         $perPage = 4;
         $nbPage = ceil($nbArt/$perPage);
@@ -59,16 +99,45 @@ class ArticleTable extends Table
             $cp = 1;
         }
         
-        $pagination = $this->query("
-            SELECT article.id, article.title, article.text, article.datePublished, article.published, categorie.name as categorie
-            FROM `article`
-            LEFT JOIN `categorie` as categorie
-            ON categorie_id = categorie.id
-            ORDER BY article.datePublished DESC
-            LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
-        );
+        if ($type == 'all') {
+            
+            $query = $this->query("
+                SELECT article.id, article.title, article.text, article.datePublished, article.published, categorie.name as categorie
+                FROM `article`
+                LEFT JOIN `categorie` as categorie
+                ON categorie_id = categorie.id
+                ORDER BY article.datePublished DESC
+                LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
+            );
+            
+        } else if ($type == 'cat') {
+            
+            $query = $this->query("
+                SELECT article.id, article.title, article.text, article.datePublished, article.published, categorie.name as categorie 
+                FROM article
+                LEFT JOIN categorie as categorie 
+                ON categorie_id = categorie.id
+                WHERE categorie.id = ?
+                ORDER BY article.datePublished DESC
+                LIMIT " . (($cp - 1) * $perPage) . ", $perPage", [$id]
+            );
+            
+        } else if ($type == 'search') {
+            
+            $query = $this->query("
+                SELECT article.id, article.title, article.text, article.datePublished, article.published, categorie.name as categorie 
+                FROM article
+                LEFT JOIN categorie as categorie 
+                ON categorie_id = categorie.id
+                WHERE article.title LIKE '%" . $key . "%'
+                OR categorie.name LIKE '%" . $key . "%'
+                ORDER BY article.datePublished DESC
+                LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
+            );
+            
+        }
         
-        $paginateData = array('query' => $pagination, 'cp' => $cp, 'nbPage' => $nbPage);
+        $paginateData = array('query' => $query, 'cp' => $cp, 'nbPage' => $nbPage);
         
         return $paginateData;
     }
