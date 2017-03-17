@@ -34,7 +34,7 @@ class CategorieTable extends Table
     {
         $cArt = $this->countCategories();
         $nbArt = $cArt[0]->allCategories;
-        $perPage = 10;
+        $perPage = 8;
         $nbPage = ceil($nbArt/$perPage);
         
         if ($currentPage > 0 && $currentPage <= $nbPage){

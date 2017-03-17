@@ -15,8 +15,10 @@ class AdminCategorieController extends AdminAppController
             $cp = 1;
         }
         
+        $form = new BootstrapForm($_POST);
+        
         $categories = App::getInstance()->getTable('Categorie')->paginateCategories($cp);
-        $this->render('admin.categories.index', compact('categories'));
+        $this->render('admin.categories.index', compact('categories', 'form'));
     }
     
     public function add()

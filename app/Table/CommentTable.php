@@ -43,7 +43,7 @@ class CommentTable extends Table
         }
         
         $pagination = $this->query("
-            SELECT comment.id, comment.flag, user.username as username, article.id as article
+            SELECT comment.id, comment.flag, user.username as username, user.id as user, article.title as title, article.id as article
             FROM `comment`
             LEFT JOIN `article` as article
             ON comment.article_id = article.id

@@ -81,7 +81,7 @@ class ArticleTable extends Table
     
     public function paginateArticles($currentPage, $type, $id = null, $key = null)
     {
-        if ($type == 'all') {
+        if ($type == 'all' || $type == 'admin') {
             $cArt = $this->countArticles();
         } else if ($type == 'cat') {
             $cArt = $this->countArticlesByCategorie($id);
@@ -135,6 +135,15 @@ class ArticleTable extends Table
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
             );
             
+        } else if ($type == 'admin') {
+            $query = $this->query("
+                SELECT article.id, article.title, article.text, article.datePublished, article.published, article.commentsActive, categorie.name as categorie
+                FROM `article`
+                LEFT JOIN `categorie` as categorie
+                ON categorie_id = categorie.id
+                ORDER BY article.datePublished DESC
+                LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
+            );
         }
         
         $paginateData = array('query' => $query, 'cp' => $cp, 'nbPage' => $nbPage);

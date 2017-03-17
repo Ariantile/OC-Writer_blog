@@ -1,0 +1,213 @@
+/***********************************************************************************************
+
+INDEX CSS 
+
+I       *** FONTS FAMILY & STYLE
+II      *** FONTS SIZES
+III     *** FONTS COLORS
+IV      *** BACKGROUND COLORS
+V       *** BORDER COLORS & SIZE
+VI      *** BLOCS
+VII     *** MEDIA QUERIES
+
+***********************************************************************************************/
+
+/*******************************************
+I   -   FONTS FAMILY & STYLE
+*******************************************/
+
+.admin-bloc-left h1, .admin-table-bloc table thead td
+{
+    font-family: 'Pacifico', sans-serif;
+    text-align: center;
+}
+
+.admin-table-bloc table td
+{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    vertical-align: middle!important;
+}
+
+/*******************************************
+II   -   FONTS SIZES
+*******************************************/
+
+.admin-table-bloc table thead td
+{
+    font-size: 18px;
+}
+
+.admin-table-bloc table td
+{
+    font-size: 16px;
+}
+
+/*******************************************
+III   -   FONTS COLORS 
+*******************************************/
+
+.feature-active, .bt-custom-action-edit
+{
+    color: #31ABBA;
+}
+
+.feature-active-flag
+{
+    color: #E52237;
+}
+
+.feature-not-active
+{
+    color: #96A0A6;
+}
+
+.bt-custom-action-delete
+{
+    color: #E52237;
+}
+
+.bt-custom-action-add
+{
+    color: #31AB36;
+}
+
+.bt-custom-action-delete:hover
+{
+    color: #A31827;
+    text-decoration: none;
+}
+
+.bt-custom-action-edit:hover
+{
+    color: #96A0A6;
+    text-decoration: none;
+}
+
+.bt-custom-action-add:hover
+{
+    color: #1E6921;
+}
+
+/*******************************************
+IV   -   BACKGROUND COLORS 
+*******************************************/
+
+.admin-bloc-left h1
+{
+    background-color: #E9E9ED!important;
+}
+
+.admin-table-bloc table thead
+{
+    background-color: #E9E9ED!important;
+}
+
+.bt-custom-action
+{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+/*******************************************
+V   -   BORDER COLORS & SIZE 
+*******************************************/
+
+.admin-bloc-left h1, .admin-table-bloc table thead
+{
+    border-bottom: 4px solid #96A0A6;
+}
+
+/*******************************************
+VI   -   BLOCS 
+*******************************************/
+
+.admin-bloc-left h1
+{
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.admin-table-bloc
+{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.admin-table-bloc table
+{
+    margin-top: 40px;
+}
+
+.admin-table-bloc table td
+{
+    padding-top: 10px;
+}
+
+.admin-add-cat
+{
+    padding-top: 8px;
+}
+
+/*******************************************
+VII   -   MEDIA QUERIES
+*******************************************/
+
+@media screen and (max-width: 767px) {
+    .admin-add-cat
+    {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .admin-table-bloc table
+    {
+        margin-top: 0px;
+    }
+    
+    .admin-bloc-left h1
+    {
+        margin-bottom: 0px;
+        font-size: 20px;
+    }
+    
+    .admin-table-bloc
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+        
+    .admin-table-bloc tr:nth-child(even) {
+        background-color: #E9E9ED;
+    }
+    
+    .small-hidden
+    {
+        display: none;
+        width: 0px;
+    }
+    
+    .admin-table-bloc .row
+    {
+        margin-right: 0px!important;
+    }
+    
+}
+
+@media screen and (max-width: 350px) {
+    
+    .admin-bloc-left h1
+    {
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    .admin-table-bloc table td
+    {
+        display: table;
+        width: 100%;
+    }
+    
+}

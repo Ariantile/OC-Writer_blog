@@ -345,3 +345,39 @@ VII   -   LABEL
 /*******************************************
 VIII   -   MEDIA QUERIES
 *******************************************/
+
+@media screen and (max-width: 1200px) {
+    
+    .write-bloc-right
+    {
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+    
+    .write-bloc-right h2
+    {
+        margin-top: 0px;
+        border-top: 1px solid #96A0A6;
+    }
+    
+    .write-bloc-option
+    {
+        margin-bottom: 0px;
+    }
+    
+}
+
+@media screen and (max-width: 300px) {
+  
+    .checkbox-replace-comment, .checkbox-replace-publish
+    {
+        width: 80px;
+        font-size: 8px;
+    }    
+    
+    .publish-bloc
+    {
+        text-align: center;
+    }
+    
+}

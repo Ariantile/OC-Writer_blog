@@ -33,7 +33,12 @@ class ArticleEntity extends Entity
      * @var boolean
      */
     protected $published;
-
+    
+    /**
+     * @var boolean
+     */
+    protected $commentsActive;
+    
     /**
      * @var int
      */
@@ -125,6 +130,23 @@ class ArticleEntity extends Entity
         return $this;
     }
 
+    /**
+     * @return boolean
+     */
+    public function getCommentsActive()
+    {
+        return $this->commentsActive;
+    }
+
+    /**
+     * @return void
+     */
+    public function setCommentsActive($commentsActive)
+    {
+        $this->commentsActive = $commentsActive;
+        return $this;
+    }
+    
     /**
      * @return int
      */

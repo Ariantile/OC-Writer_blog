@@ -138,4 +138,9 @@ class UserEntity extends Entity
         $this->status = $status;
         return $this;
     }
+    
+    public function getUrl()
+    {
+        return '/writer/web/membre/' . $this->id;
+    }
 }

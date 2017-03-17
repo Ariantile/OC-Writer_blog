@@ -15,8 +15,12 @@ class AdminArticleController extends AdminAppController
             $cp = 1;
         }
 
-        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp);
-        $this->render('admin.articles.index', compact('articles'));
+        $form = new BootstrapForm($_POST);
+        
+        $type = 'admin';
+        
+        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp, $type);
+        $this->render('admin.articles.index', compact('articles', 'form'));
     }
     
     public function edit()

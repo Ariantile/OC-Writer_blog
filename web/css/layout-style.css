@@ -73,9 +73,20 @@ III   -   FONTS COLORS
     color: #FFFFFF;
 }
 
+.link-custom
+{
+    color: #337ab7;
+}
+
 .btn-custom:hover
 {
     color: #2B5695;
+}
+
+.link-custom:hover
+{
+    color: #31ABBA;
+    text-decoration: none;
 }
 
 /*******************************************

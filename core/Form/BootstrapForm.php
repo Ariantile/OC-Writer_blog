@@ -101,12 +101,18 @@ class BootstrapForm extends Form
      * @param $label string
      * @return string
      */
-    public function submit($label = null)
+    public function submit($label = null, $classType = null)
     {
         $label = isset($label) ? $label : 'Envoyer';
         
+        if (isset($classType) && $classType == 'add') {
+            $class = 'bt-custom-action bt-custom-action-add';
+        } else {
+            $class = 'btn btn-custom';
+        }
+        
         return $this->surround(
-            '<button type="submit" class="btn btn-custom">' . $label . '</button>'
+            '<button type="submit" class="' . $class . '">' . $label . '</button>'
         );
     }
 }

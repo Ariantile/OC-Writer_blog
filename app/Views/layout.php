@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="/writer/web/css/index-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/admin-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">   
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
         
@@ -30,7 +31,7 @@
                 <div class="top-header-bloc">
                     <div class="top-header-links">
                         <span><a href="/writer/web/login">Connexion</a></span>
-                        <span><a href="/writer/web/membre">Profil</a></span>
+                        <span><a href="/writer/web/membre/self">Profil</a></span>
                     </div>
                 </div>
                 

@@ -116,4 +116,14 @@ class CommentEntity extends Entity
         $this->article = $article;
         return $this;
     }
+    
+    public function getUserUrl()
+    {
+        return '/writer/web/membre/' . $this->user;
+    }
+    
+    public function getArticleUrl()
+    {
+        return '/writer/web/article/' . $this->article;
+    }
 }
