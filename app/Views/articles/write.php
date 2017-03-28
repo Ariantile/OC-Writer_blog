@@ -26,7 +26,6 @@
                 <?= $form->textarea('text'); ?>
             </div>
         </div>
-        
         <div class="col-lg-4 col-xs-12 write-bloc-right">
             <h2>Catégories &amp; Publication</h2>
             <div class="write-bloc-option row">
@@ -37,6 +36,7 @@
                 <div class="publish-bloc">
                     <?= $form->checkbox('publish', 'PUBLIER') ?>
                     <?= $form->checkbox('comment', 'COMMENTAIRES') ?>
+                    <?= $form->token($token) ?>
                 </div>
                 <?= $form->submit('Sauvegarder'); ?>
             </div>

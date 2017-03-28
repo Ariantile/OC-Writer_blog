@@ -1,4 +1,37 @@
 /*******************************************
+ALL FORM
+*******************************************/
+
+.input-text-style
+{
+    background-color: #FFF;
+}
+
+.input-text-style
+{
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.form-group
+{
+    margin-bottom: 40px;
+}
+
+.form-control
+{
+    box-shadow: none;
+}
+
+.form-error
+{
+    color: #FF4C4B;
+    font-family: 'Oswald', sans-serif;
+}
+
+/*******************************************
 LOGIN 
 *******************************************/
 
@@ -7,6 +40,13 @@ LOGIN
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.bloc-form p
+{
+    font-family: 'Oswald', sans-serif;
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 .login-form
@@ -24,25 +64,8 @@ LOGIN
     box-sizing: border-box;
 }
 
-.login-form input
+.login-form a:hover
 {
-    margin-bottom: 40px;
-}
-
-.input-text-style
-{
-    background-color: #FFF;
-}
-
-.input-text-style
-{
-    border-radius: 0px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-
-.form-control
-{
-    box-shadow: none;
+    text-decoration: none;
+    color: #31ABBA;
 }

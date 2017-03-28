@@ -14,7 +14,7 @@ class AdminCommentController extends AdminAppController
         } else {
             $cp = 1;
         }
-        
+
         $comments = App::getInstance()->getTable('Comment')->paginateComments($cp);
         $this->render('admin.comments.index', compact('comments'));
     }
@@ -34,10 +34,17 @@ class AdminCommentController extends AdminAppController
         }
 
         $comment = $commentTable->findCommentById($_GET['id']);
-
+        
+        if ($comment === false)
+        {
+            $this->notFound();
+        }
+        
         $form = new BootstrapForm($comment);
         
-        $this->render('admin.comments.edit', compact('comment', 'form'));
+        $token = $this->formToken();
+
+        $this->render('admin.comments.edit', compact('comment', 'form', 'token'));
     }
     
     public function delete()

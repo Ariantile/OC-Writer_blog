@@ -14,7 +14,7 @@ class AdminUserController extends AdminAppController
         } else {
             $cp = 1;
         }
-
+            
         $users = App::getInstance()->getTable('User')->paginateUsers($cp);
         $this->render('admin.users.index', compact('users'));
     }
@@ -34,11 +34,18 @@ class AdminUserController extends AdminAppController
             }
         }
 
-        $user = $userTable->find($_GET['id']);
-
-        $form = new BootstrapForm($categorie);
+        $user = $userTable->findOne($_GET['id']);
         
-        $this->render('admin.users.edit', compact('form'));
+        if ($user === false)
+        {
+            $this->notFound();
+        }
+
+        $form = new BootstrapForm($user);
+        
+        $token = $this->formToken();
+
+        $this->render('admin.users.edit', compact('form', 'token', 'user'));
     }
     
     public function delete()

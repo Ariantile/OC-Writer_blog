@@ -156,6 +156,15 @@ VI   -   BLOCS
     width: 100%;
 }
 
+.msg-cont
+{
+    margin-top: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 /*********************************
 VI.1   -   TOP HEADER
 *********************************/
@@ -213,11 +222,6 @@ VI.3   -   MENU
 /*********************************
 VI.4   -   CONTENT
 *********************************/
-
-.content-bloc
-{
-    
-}
 
 /*********************************
 VI.6   -   FOOTER

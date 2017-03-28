@@ -10,6 +10,19 @@ use Core\Table\Table;
 class CategorieTable extends Table
 {
     /*
+     * Récupères une catégorie par id
+     * @return array
+     */
+    public function findOne($id)
+    {
+        return $this->query("
+            SELECT categorie.id, categorie.name
+            FROM categorie
+            WHERE categorie.id = ?
+        ", [$id], true);
+    }
+    
+    /*
      * Recupère toutes les categories
      * @return array
      */
@@ -22,6 +35,10 @@ class CategorieTable extends Table
         ");
     }
     
+    /*
+     * Compte toutes les catégories
+     * @return int
+     */
     public function countCategories()
     {
         return $this->query("

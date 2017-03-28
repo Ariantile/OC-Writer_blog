@@ -10,13 +10,6 @@ use Core\Entity\Entity;
 class CategorieEntity extends Entity
 {
     /**
-     *
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @var int
      */
     protected $id;

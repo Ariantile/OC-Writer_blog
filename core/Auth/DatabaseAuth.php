@@ -13,10 +13,16 @@ class DatabaseAuth
         $this->db = $db;
     }
     
-    public function getUserId()
+    public function getUserLogged()
     {
         if($this->logged()){
-            return $_SESSION['auth'];
+            return $user = array(
+                $_SESSION['auth'],
+                $_SESSION['username'],
+                $_SESSION['email'],
+                $_SESSION['type'],
+                $_SESSION['status']
+            );
         }
         return false;
     }
@@ -29,10 +35,14 @@ class DatabaseAuth
     public function login ($username, $password)
     {
         $user = $this->db->prepare('SELECT * FROM user WHERE username = ?', [$username], null, true);
-        
+
         if($user) {
-            if ($user->password === sha1($password)){
+            if (password_verify($password , $user->password) === true){
                 $_SESSION['auth'] = $user->id;
+                $_SESSION['username'] = $user->username; 
+                $_SESSION['email'] = $user->email;
+                $_SESSION['type'] = $user->type;
+                $_SESSION['status'] = $user->status;
                 return true;
             }
         }
@@ -42,6 +52,8 @@ class DatabaseAuth
     
     public function logged()
     {
-        return isset($_SESSION['auth']);
+        if (isset($_SESSION['type']) && $_SESSION['type'] == 'Admin') {
+            return $_SESSION['type'];
+        }
     }
 }

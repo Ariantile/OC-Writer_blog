@@ -9,6 +9,24 @@ namespace Core\Form;
 class BootstrapForm extends Form
 {
     /**
+     * Affiche les erreurs des formulaires
+     *
+     * @param $error array
+     */
+    public function displayErrors($errors_array)
+    {
+        if (count($errors_array) == 1) {
+            $error = '<div class="form-error">' . $errors_array[0] . '</div>';
+        } else {
+            $error = '';
+            foreach ($errors_array as $er) {
+                $error .=  '<div class="form-error">' . $er . '</div>';
+            }
+        }
+        return $error;
+    }
+    
+    /**
      * Balise html entourant les input
      *
      * @param $html string Code HTML
@@ -20,6 +38,17 @@ class BootstrapForm extends Form
     }
     
     /**
+     * Génère et retourne l'input de token
+     *
+     * @param $token string
+     * @return string
+     */
+    public function token($token)
+    {
+        return '<input id="token" type="hidden" name="token" value="'. $token . '">';
+    }
+                            
+    /**
      * Génère et retourne un input
      *
      * @param $name string
@@ -30,10 +59,24 @@ class BootstrapForm extends Form
     public function input($name, $placeholder = null, $label = null, $options = [])
     {
         $type = isset($options['type']) ? $options['type'] : 'text';
+        
+        if (isset($options['required']) && $options['required'] == true) {
+            $req = 'required';
+        } else {
+            $req = '';
+        }
+         
         $value = $this->getValue($name);
         
+        if (isset($_SESSION['form_errors'][$name])) {
+            $error = $this->displayErrors($_SESSION['form_errors'][$name]);
+            unset($_SESSION['form_errors'][$name]);
+        } else {
+            $error = '';
+        }
+        
         return $this->surround(
-            '<input id="input-' . $name . '" type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control input-text-style">'
+            '<input id="input-' . $name . '" type="' . $type . '" placeholder ="' . $placeholder . '" name="' . $name . '"  value="'. $value . '" class="form-control input-text-style" ' . $req . '>' . $error . ''
         );
     }
     
@@ -49,6 +92,26 @@ class BootstrapForm extends Form
         
         return $this->surround(
             '<label for="input-' . $name . '"><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '" class="checkbox-custom" "><span class="checkbox-replace-' . $name . '">' . $label . '</span></label>'
+        );
+    }
+    
+    /**
+     * Génère et retourne un input de type checkbox pour l'administration
+     *
+     * @param $name string
+     * @return string
+     */
+    public function checkboxAdmin($name, $label)
+    {
+        $value = $this->getValue($name);
+        $attributes = '';
+        
+        if ($value == true) {
+            $attributes = 'checked';
+        }
+        
+        return $this->surround(
+            '<input ' . $attributes . ' id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
         );
     }
     
@@ -72,25 +135,83 @@ class BootstrapForm extends Form
     }
     
     /**
-     * Génère et retourne une un select
+     * Génère et retourne un select
      *
      * @param $name string
      * @param array $options
      * @return string
      */
-    public function select($name, $options, $placeholder)
+    public function select($name, $options, $placeholder = null)
     {
         $input =  '<select class ="form-control input-text-style" name="' . $name . '">';
-        $input .= "<option selected value>" . $placeholder . "</option>";
+        
+        if (isset($placeholder))
+        {
+            $input .= "<option selected value>" . $placeholder . "</option>";
+        }
+        
         foreach($options as $k => $v)
         {
             $attributes = '';
-            if($k == $this->getValue($name)){
+            if($v->name == $this->getValue($name)){
                 $attributes = ' selected';
             }
             
-            $input .= "<option value='" . $k . " - " . $attributes . "'>" . $v->getName() . "</option>";
+            $input .= '<option value="' . $k . '" ' . $attributes . '>' . $v->getName() . '</option>';
         }
+        $input .= '</select>';
+        return $this->surround($input);
+    }
+    
+    /**
+     * Génère et retourne un select
+     *
+     * @param $name string
+     * @param array $options
+     * @return string
+     */
+    public function selectUserAdmin($name, $options)
+    {
+        $input =  '<select class ="form-control input-text-style" name="' . $name . '">';
+        $value = $this->getValue($name);
+        
+        if ($name == 'type') {
+            
+            $types = array(
+                ['name' => 'Admin', 'placeholder' => 'Admin'],
+                ['name' => 'Member', 'placeholder' => 'Membre']
+            );
+            
+            foreach ($types as $t) {
+                $attributes = '';
+                
+                if ($value == $t['name']) {
+                    $attributes = 'selected';
+                }
+                
+                $input .= '<option value="' . $t['name'] . '" ' . $attributes . '>' . $t['placeholder'] . '</option>';
+            }
+
+        } else if ($name == 'status') {
+            
+            $allStatus = array(
+                ['name' => 'Registred', 'placeholder' => 'Enregistré'],
+                ['name' => 'Validated', 'placeholder' => 'Validé'],
+                ['name' => 'Ban', 'placeholder' => 'Banni'],
+            );
+            
+            foreach ($allStatus as $s) {
+            
+                $attributes = '';
+
+                if ($value == $s['name']) {
+                    $attributes = 'selected';
+                }
+                
+                $input .= '<option value="' . $s['name'] . '" ' . $attributes . '>' . $s['placeholder'] . '</option>';
+            }
+        }
+        
         $input .= '</select>';
         return $this->surround($input);
     }

@@ -8,13 +8,6 @@ namespace App\Entity;
 class BookmarkEntity
 {
     /**
-     *
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @var int
      */
     protected $id;

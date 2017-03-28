@@ -17,7 +17,13 @@ class AdminAppController extends AppController
 
         if (!$auth->logged())
         {
-            $this->forbidden();
+            header('HTTP/1.1 403 Forbidden');
+            
+            $error_msg = 'Vous n\'êtes pas autorisé à accéder à cette page.';
+            
+            $this->render('error', compact('error_msg'));
+            
+            die();
         }
     }
 }

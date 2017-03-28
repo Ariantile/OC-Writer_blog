@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/admin-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/error-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">   
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
         
@@ -30,8 +31,20 @@
                 
                 <div class="top-header-bloc">
                     <div class="top-header-links">
-                        <span><a href="/writer/web/login">Connexion</a></span>
-                        <span><a href="/writer/web/membre/self">Profil</a></span>
+                        <?php 
+                            if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Membre'))
+                            {
+                        ?>
+                            <span><a href="/writer/web/logout">Déconnexion</a></span>
+                            <span><a href="/writer/web/membre/self">Profil</a></span>
+                        <?php
+                            } else {
+                        ?>
+                            <span><a href="/writer/web/inscription">Inscription</a></span>
+                            <span><a href="/writer/web/login">Connexion</a></span>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
                 
@@ -61,12 +74,20 @@
                                     Index des écrits
                                 </a>
                             </li>
-                            <li>
-                                <a href="/writer/web/article/ajouter">
-                                    <i class="fa fa-pencil-square-o " aria-hidden="true"></i>
-                                    Écrire
-                                </a>
-                            </li>
+                            
+                            <?php 
+                                if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin'))
+                                {
+                            ?>
+                                <li>
+                                    <a href="/writer/web/article/ajouter">
+                                        <i class="fa fa-pencil-square-o " aria-hidden="true"></i>
+                                        Écrire
+                                    </a>
+                                </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                         
                         <div class="search-navbar-bloc">
@@ -104,33 +125,41 @@
                     </a>
                 </div>
                 
-                <div class="col-sm-6 admin-links-bloc">
-                    <p>Administration</p>
-                    <hr>
-                    <ul>
-                        <li>
-                            <a href="/writer/web/admin/articles/1">
-                                ARTICLES
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="/writer/web/admin/categories/1">
-                                CATEGORIES
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/writer/web/admin/commentaires/1">
-                                COMMENTAIRES
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/writer/web/admin/users/1">
-                                UTILISATEURS
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <?php 
+                    if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin'))
+                    {
+                ?>
+                    <div class="col-sm-6 admin-links-bloc">
+                        <p>Administration</p>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="/writer/web/admin/articles/1">
+                                    ARTICLES
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/writer/web/admin/categories/1">
+                                    CATEGORIES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/writer/web/admin/commentaires/1">
+                                    COMMENTAIRES
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/writer/web/admin/users/1">
+                                    UTILISATEURS
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                       
+                <?php
+                    }
+                ?>
                 
             </footer>
             <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>

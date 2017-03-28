@@ -9,6 +9,62 @@ use Core\Table\Table;
  */
 class UserTable extends Table
 {
+    /*
+     * Cherche si un username ou un email existe déjà
+     * @return array
+     */
+    public function findOneUnique($type, $value)
+    {
+        return $this->query("
+            SELECT user.". $type ."
+            FROM user
+            WHERE user.". $type ." = ?
+        ", [$value], true);
+    }
+    
+    /*
+     * Récupères un utilisateur par son code d'activation
+     * @return array
+     */
+    public function findOneActivation($code)
+    {
+        return $this->query("
+            SELECT user.id, user.activation, user.activated
+            FROM user
+            WHERE user.activation = ?
+        ", [$code], true);
+    }
+    
+    /*
+     * Récupères un utilisateur par id
+     * @return array
+     */
+    public function findOne($id)
+    {
+        return $this->query("
+            SELECT user.id, user.username, user.type, user.status
+            FROM user
+            WHERE user.id = ?
+        ", [$id], true);
+    }
+    
+    /*
+     * Récupères un utilisateur par email
+     * @return array
+     */
+    public function findOneByEmail($email)
+    {
+        return $this->query("
+            SELECT user.id, user.username, user.type, user.status, user.activated, user.email
+            FROM user
+            WHERE user.email = ?
+        ", [$email], true);
+    }
+    
+    /*
+     * Compte le nombre total d'utilisateur
+     * @return int
+     */
     public function countUsers()
     {
         return $this->query("

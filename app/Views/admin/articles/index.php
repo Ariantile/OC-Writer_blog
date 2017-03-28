@@ -7,7 +7,7 @@
     <h1>Administration des articles postés</h1>
     
     <div class="admin-table-bloc">
-    
+        
         <table class="table">
             <thead class="small-hidden">
                 <tr>

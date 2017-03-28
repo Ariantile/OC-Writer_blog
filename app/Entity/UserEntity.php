@@ -10,13 +10,6 @@ use Core\Entity\Entity;
 class UserEntity extends Entity
 {
     /**
-     *
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * @var int
      */
     protected $id;
@@ -25,16 +18,16 @@ class UserEntity extends Entity
      * @var string
      */
     protected $username;
-
+    
+    /**
+     * @var string
+     */
+    protected $email;
+    
     /**
      * @var string
      */
     protected $password;
-
-    /**
-     * @var string
-     */
-    protected $salt;
 
     /**
      * @var string
@@ -45,7 +38,17 @@ class UserEntity extends Entity
      * @var string
      */
     protected $status;
-
+    
+    /**
+     * @var string
+     */
+    protected $activation;
+    
+    /**
+     * @var boolean
+     */
+    protected $activated;
+    
     /**
      * @return int
      */
@@ -74,6 +77,23 @@ class UserEntity extends Entity
     /**
      * @return string
      */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return void
+     */
+    public function setEmail()
+    {
+        $this->email = $email;
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
     public function getPassword()
     {
         return $this->password;
@@ -85,23 +105,6 @@ class UserEntity extends Entity
     public function setPassword()
     {
         $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @return void
-     */
-    public function setSalt()
-    {
-        $this->salt = $salt;
         return $this;
     }
 
@@ -136,6 +139,40 @@ class UserEntity extends Entity
     public function setStatus()
     {
         $this->status = $status;
+        return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getActivation()
+    {
+        return $this->activation;
+    }
+
+    /**
+     * @return void
+     */
+    public function setActivation()
+    {
+        $this->activation = $activation;
+        return $this;
+    }
+    
+    /**
+     * @return boolean
+     */
+    public function getActivated()
+    {
+        return $this->activated;
+    }
+
+    /**
+     * @return void
+     */
+    public function setActivated()
+    {
+        $this->activated = $activated;
         return $this;
     }
     

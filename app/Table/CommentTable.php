@@ -9,18 +9,25 @@ use Core\Table\Table;
  */
 class CommentTable extends Table
 {
-    
+    /*
+     * Récupère un commentaire par id
+     * @return int
+     */
     public function findCommentById($id)
     {
         return $this->query("
-            SELECT comment.id, user.username as username, article.id as article
+            SELECT comment.id, comment.flag, comment.comment, user.username as username, user.id as user, article.title as title, article.id as article
             FROM comment
             LEFT JOIN user ON user_id = user.id
             LEFT JOIN article ON article_id = article.id
             WHERE comment.id = ?
         ", [$id], true);
     }
-    
+
+    /*
+     * Compte tous les commentaires
+     * @return int
+     */
     public function countComments()
     {
         return $this->query("

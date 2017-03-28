@@ -39,11 +39,19 @@ class AdminArticleController extends AdminAppController
         }
 
         $article = $articleTable->findWithCategorie($_GET['id']);
-        $categorie = App::getInstance()->getTable('Categorie')->extract('id', 'name');
+        
+        if ($article === false)
+        {
+            $this->notFound();
+        }
+        
+        $categories = App::getInstance()->getTable('Categorie')->getAll();
 
         $form = new BootstrapForm($article);
         
-        $this->render('admin.articles.edit', compact('categorie', 'form'));
+        $token = $this->formToken();
+        
+        $this->render('admin.articles.edit', compact('categories', 'form', 'token'));
     }
     
     public function delete()

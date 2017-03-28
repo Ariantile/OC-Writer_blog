@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use \App;
 use Core\Form\BootstrapForm;
+use Core\Auth;
 
 class ArticleController extends AppController
 {
@@ -62,10 +63,18 @@ class ArticleController extends AppController
         
         $form = new BootstrapForm($_POST);
         
-        $type = 'search';
-        $key = $_GET['key'];
+        if (isset($_GET['key'])) {
+            $type = 'search';
+            $key = $_GET['key'];
         
-        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp , $type, null , $_GET['key']);
+            $articles = App::getInstance()->getTable('Article')->paginateArticles($cp , $type, null , $_GET['key']);
+            $categories = App::getInstance()->getTable('Categorie')->getAll();
+        } else {
+            $type = 'all';
+            $articles = App::getInstance()->getTable('Article')->paginateArticles($cp , $type);
+        }
+
+        
         $categories = App::getInstance()->getTable('Categorie')->getAll();
         
         $this->render('articles.index', compact('articles', 'categories', 'form', 'type', 'key'));
@@ -78,7 +87,7 @@ class ArticleController extends AppController
 
         if ($article === false)
         {
-            $app->notFound();
+            $this->notFound();
         }
         
         $this->render('articles.read', compact('article'));
@@ -86,10 +95,20 @@ class ArticleController extends AppController
     
     public function write()
     {
-        $form = new BootstrapForm($_POST);
+        if (isset($_SESSION['type']) && $_SESSION['type'] == 'Admin') {
+            $form = new BootstrapForm($_POST);
         
-        $categories = App::getInstance()->getTable('Categorie')->getAll();
-        
-        $this->render('articles.write', compact('form', 'categories'));
+            $categories = App::getInstance()->getTable('Categorie')->getAll();
+            
+            $token = $this->formToken();
+            
+            $this->render('articles.write', compact('form', 'categories', 'token'));
+        } else {
+            header('HTTP/1.1 403 Forbidden');
+            
+            $error_msg = 'Vous n\'êtes pas autorisé à accéder à cette page.';
+            
+            $this->render('error', compact('error_msg'));
+        }
     }
 }

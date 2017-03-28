@@ -7,8 +7,9 @@ tinymce.init({
 <div class="bloc-form">
     <form method="post" class="edit-form">
         <?= $form->input('username'); ?>
-        <?= $form->input('type'); ?>
-        <?= $form->input('status') ?>
+        <?= $form->selectUserAdmin('type', $user); ?>
+        <?= $form->selectUserAdmin('status', $user); ?>
+        <?= $form->token($token) ?>
         <?= $form->submit('Sauvegarder'); ?>
     </form>
 </div>
