@@ -183,12 +183,14 @@ class ArticleEntity extends Entity
     
     public function getUrl()
     {
-        return '/writer/web/article/' . $this->id;
+        return '/writer/web/article/' . $this->id . '/1';
     }
     
     public function getExtract()
     {
-        $html = '<p>' . substr($this->text, 0, 400) . '...<a href="' .$this->getUrl() .  '" class="index-link-read"> Lire la suite</a></p>';
+        $text_extr = strip_tags($this->text);
+        
+        $html = '<p>' . substr($text_extr, 0, 400) . '...<a href="' .$this->getUrl() .  '" class="index-link-read"> Lire la suite</a></p>';
         return $html;
     }
     

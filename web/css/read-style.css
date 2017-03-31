@@ -26,7 +26,7 @@ I   -   FONTS FAMILY & STYLE
     font-family: 'Oswald', sans-serif;
 }
 
-.read-title-bloc h2
+.read-title-bloc h2, .comments-title
 {
     font-family: 'Pacifico', sans-serif;
 }
@@ -74,40 +74,45 @@ II   -   FONTS SIZES
     font-size: 11px;
 }
 
+.comments-title
+{
+    font-size: 25px;
+}
+
 /*********************************
 II.1   -   READING OPTIONS
 *********************************/
 
 .font-xs
 {
-    font-size: 1em;
+    font-size: 1em!important;
 }
 
 .font-sm
 {
-    font-size: 1.2em;
+    font-size: 1.2em!important;
 }
 
 .font-nm
 {
-    font-size: 1.4em;
+    font-size: 1.4em!important;
 }
 
 .font-lg
 {
-    font-size: 1.8em;
+    font-size: 1.8em!important;
 }
 
 .font-xl
 {
-    font-size: 2em;
+    font-size: 2em!important;
 }
 
 /*******************************************
 III   -   FONTS COLORS 
 *******************************************/
 
-.read-title-bloc
+.read-title-bloc, .comments-title
 {
     color: #96A0A6;
 }
@@ -145,7 +150,7 @@ III.1   -   READING OPTIONS
 IV   -   BACKGROUND COLORS 
 *******************************************/
 
-.read-title-bloc
+.read-title-bloc, .comments-title
 {
     background-color: #ECECF0;
 }
@@ -188,6 +193,11 @@ V   -   BORDER COLORS & SIZE
     border-top: 2px solid #96A0A6;
 }
 
+.comments-title
+{
+    border-bottom: 2px solid #96A0A6;
+}
+
 /*******************************************
 VI   -   BLOCS
 *******************************************/
@@ -200,6 +210,13 @@ VI   -   BLOCS
     padding-left: 20px;
     margin-top: 40px;
     margin-bottom: 0px!important;
+}
+
+.comments-title
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .reading-bloc
@@ -225,6 +242,11 @@ VI   -   BLOCS
     min-height: 650px;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.form-comment textarea
+{
+    resize: none;
 }
 
 /*******************************************

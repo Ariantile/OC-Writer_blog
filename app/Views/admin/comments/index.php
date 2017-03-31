@@ -71,7 +71,7 @@
             <?php 
                 $cpage  = $comments['cp'];
                 $nbPage = $comments['nbPage'];
-                $url    = '/writer/web/admin/comments/';
+                $url    = '/writer/web/admin/commentaires/';
                 $pag    = new PaginateNav;
                 $pag->getPaginateNav($cpage, $nbPage, $url);
             ?>

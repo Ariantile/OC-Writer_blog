@@ -20,7 +20,9 @@ class ArticleTable extends Table
             FROM `article`
             LEFT JOIN `categorie` as categorie
             ON categorie_id = categorie.id
+            WHERE article.published = true
             ORDER BY article.datePublished DESC
+            LIMIT 8
         ");
     }
  
@@ -31,11 +33,24 @@ class ArticleTable extends Table
     public function findWithCategorie($id)
     {
         return $this->query("
-            SELECT article.id, article.title, article.text, article.datePublished, article.published, categorie.name as categorie
+            SELECT article.id, article.title, article.text, article.datePublished, article.published, article.commentsActive,categorie.name as categorie
             FROM article
             LEFT JOIN categorie ON categorie_id = categorie.id
             WHERE article.id = ?
         ", [$id], true);
+    }
+    
+    /*
+     * Compte tous les articles
+     * @return int
+     */
+    public function countArticlesPublic()
+    {
+        return $this->query("
+            SELECT COUNT(id) as allArticles 
+            FROM Article
+            WHERE article.published = true
+        ");
     }
     
     /*
@@ -82,11 +97,13 @@ class ArticleTable extends Table
     public function paginateArticles($currentPage, $type, $id = null, $key = null)
     {
         if ($type == 'all' || $type == 'admin') {
-            $cArt = $this->countArticles();
+            $cArt = $this->countArticlesPublic();
         } else if ($type == 'cat') {
             $cArt = $this->countArticlesByCategorie($id);
         } else if ($type == 'search') {
             $cArt = $this->countArticlesSearch($key);
+        } else if ($type == 'admin') {
+            $cArt = $this->countArticles();
         }
         
         $nbArt = $cArt[0]->allArticles;
@@ -106,6 +123,7 @@ class ArticleTable extends Table
                 FROM `article`
                 LEFT JOIN `categorie` as categorie
                 ON categorie_id = categorie.id
+                WHERE article.published = true
                 ORDER BY article.datePublished DESC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
             );
@@ -118,6 +136,7 @@ class ArticleTable extends Table
                 LEFT JOIN categorie as categorie 
                 ON categorie_id = categorie.id
                 WHERE categorie.id = ?
+                AND article.published = true
                 ORDER BY article.datePublished DESC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage", [$id]
             );
@@ -131,6 +150,7 @@ class ArticleTable extends Table
                 ON categorie_id = categorie.id
                 WHERE article.title LIKE '%" . $key . "%'
                 OR categorie.name LIKE '%" . $key . "%'
+                AND article.published = true
                 ORDER BY article.datePublished DESC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
             );

@@ -68,7 +68,7 @@ class Validator
         
         if (empty($field)) {
             array_push($errors, $msg_empty);
-        } else if ($length < 2 ) {
+        } else if ( ($length < 2) && ($type !== 'categorie_id') ) {
             array_push($errors, $msg_min);
         }
         

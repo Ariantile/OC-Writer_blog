@@ -43,7 +43,7 @@ class CategorieTable extends Table
     {
         return $this->query("
             SELECT COUNT(id) as allCategories
-            FROM Comment
+            FROM categorie
         ");
     }
     

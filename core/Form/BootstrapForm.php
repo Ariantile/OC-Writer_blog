@@ -47,7 +47,29 @@ class BootstrapForm extends Form
     {
         return '<input id="token" type="hidden" name="token" value="'. $token . '">';
     }
-                            
+    
+    /**
+     * Génère et retourne l'input de page courrante
+     *
+     * @param $token string
+     * @return string
+     */
+    public function cur($cur)
+    {
+        return '<input id="cur" type="hidden" name="cur" value="'. $cur . '">';
+    }
+    
+    /**
+     * Génère et retourne l'input de page courrante
+     *
+     * @param $token string
+     * @return string
+     */
+    public function responseid()
+    {
+        return '<input id="respond_to_id" type="hidden" name="respond_to" value="0">';
+    }
+    
     /**
      * Génère et retourne un input
      *
@@ -88,7 +110,7 @@ class BootstrapForm extends Form
      */
     public function checkbox($name, $label)
     {
-        $value = $this->getValue($name);
+        $value = 1;
         
         return $this->surround(
             '<label for="input-' . $name . '"><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '" class="checkbox-custom" "><span class="checkbox-replace-' . $name . '">' . $label . '</span></label>'
@@ -129,8 +151,27 @@ class BootstrapForm extends Form
         $cols = isset($options['cols']) ? $options['cols'] : '50';
         $value = $this->getValue($name);
         
+        if (isset($options['required']) && $options['required'] == true) {
+            $req = 'required';
+        } else {
+            $req = '';
+        }
+        
+        if (isset($options['max'])) {
+            $max = 'maxlength ="' . $options['max'] . '"';
+        } else {
+            $max = '';
+        }
+        
+        if (isset($_SESSION['form_errors'][$name])) {
+            $error = $this->displayErrors($_SESSION['form_errors'][$name]);
+            unset($_SESSION['form_errors'][$name]);
+        } else {
+            $error = '';
+        }
+        
         return $this->surround(
-            '<textarea id="write-area" rows="' . $rows . '" $cols ="' . $cols . '" name="' . $name . '" class="form-control">' . $value . '</textarea>'
+            '<textarea '. $max .' id="write-area" rows="' . $rows . '" $cols ="' . $cols . '" name="' . $name . '" class="form-control"' . $req . '>' . $value . '</textarea>' . $error . ''
         );
     }
     
@@ -141,9 +182,22 @@ class BootstrapForm extends Form
      * @param array $options
      * @return string
      */
-    public function select($name, $options, $placeholder = null)
+    public function select($name, $options, $placeholder = null, $config = [])
     {
-        $input =  '<select class ="form-control input-text-style" name="' . $name . '">';
+        if (isset($config['required']) && $config['required'] == true) {
+            $req = 'required';
+        } else {
+            $req = '';
+        }
+        
+        if (isset($_SESSION['form_errors'][$name])) {
+            $error = $this->displayErrors($_SESSION['form_errors'][$name]);
+            unset($_SESSION['form_errors'][$name]);
+        } else {
+            $error = '';
+        }
+        
+        $input =  '<select class ="form-control input-text-style" name="' . $name . '"' . $req . '>';
         
         if (isset($placeholder))
         {
@@ -153,13 +207,19 @@ class BootstrapForm extends Form
         foreach($options as $k => $v)
         {
             $attributes = '';
+            
             if($v->name == $this->getValue($name)){
                 $attributes = ' selected';
             }
             
-            $input .= '<option value="' . $k . '" ' . $attributes . '>' . $v->getName() . '</option>';
+            if (isset($config['type']) && $config['type'] == 'cat_write')
+            {
+                $val = $v->id;
+            }
+            
+            $input .= '<option value="' . $val . '" ' . $attributes . '>' . $v->getName() . '</option>';
         }
-        $input .= '</select>';
+        $input .= '</select>' . $error . '';
         return $this->surround($input);
     }
     

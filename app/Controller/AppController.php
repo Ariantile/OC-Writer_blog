@@ -27,6 +27,28 @@ class AppController extends Controller
         die();
     }
     
+    public function notAuthorized()
+    {
+        header('HTTP/1.1 403 Forbidden');
+            
+        $error_msg = 'Vous n\'êtes pas autorisé à accéder à cette page.';
+            
+        $this->render('error', compact('error_msg'));
+            
+        die();
+    }
+    
+    public function badRequest()
+    {
+        header('HTTP/1.1 400 Bad Request');
+            
+        $error_msg = 'Requête incorrecte.';
+            
+        $this->render('error', compact('error_msg'));
+            
+        die();
+    }
+    
     public function formToken()
     {
         $now = new DateTime();
@@ -42,6 +64,17 @@ class AppController extends Controller
             $token = $_SESSION['token'];
             return $token;
         }
+    }
+    
+    public function currentPage()
+    {
+        if (isset($_SESSION['reading'])) {
+            unset($_SESSION['reading']);
+        }
+        
+        $cur = $_GET['id'];
+        $_SESSION['reading'] = $_GET['id'];
+        return $cur;
     }
     
     public function checkToken()

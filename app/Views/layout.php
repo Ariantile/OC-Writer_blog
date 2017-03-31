@@ -12,11 +12,13 @@
         <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Baskerville|Open+Sans|Roboto|Pacifico|Anton|Oswald" rel="stylesheet">
         <link rel="stylesheet" href="/writer/web/css/write-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/layout-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/home-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/index-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/admin-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/error-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/comment-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">   
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
         
@@ -165,6 +167,7 @@
             <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="crossorigin="anonymous"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src="/writer/web/js/reading-script.js"></script>
+            <script src="/writer/web/js/comments-script.js"></script>
             <script src="/writer/web/menu/js/classie.js"></script>
             <script src="/writer/web/menu/js/modernizr.custom.js"></script>
     </body>

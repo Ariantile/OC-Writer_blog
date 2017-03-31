@@ -14,8 +14,10 @@ class AdminCommentController extends AdminAppController
         } else {
             $cp = 1;
         }
-
-        $comments = App::getInstance()->getTable('Comment')->paginateComments($cp);
+        
+        $type = 'admin';
+        
+        $comments = App::getInstance()->getTable('Comment')->paginateComments($cp, $type);
         $this->render('admin.comments.index', compact('comments'));
     }
 

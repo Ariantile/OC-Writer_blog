@@ -124,4 +124,9 @@ class Table
             );
         }
     }
+    
+    public function lastInsert()
+    {
+        return $this->db->lastInsertId();
+    }
 }

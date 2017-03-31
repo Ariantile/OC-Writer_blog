@@ -24,9 +24,13 @@ class UserController extends AppController
         {
             $validator = new Validator;
             
+            $username       = strip_tags($_POST['username']);
+            $email          = strip_tags($_POST['email']);
+            $emailConfirm   = strip_tags($_POST['emailConfirm']);
+            
             $post_array = array(
-                ['type' => 'username', 'field' => $_POST['username']],
-                ['type' => 'email', 'field' => $_POST['email'], 'field_conf' => $_POST['emailConfirm']],
+                ['type' => 'username', 'field' => $username],
+                ['type' => 'email', 'field' => $email, 'field_conf' => $emailConfirm],
                 ['type' => 'password', 'field' => $_POST['password'], 'field_conf' => $_POST['passwordConfirm']],
             );
             
@@ -41,8 +45,6 @@ class UserController extends AppController
                     
                     $userTable = App::getInstance()->getTable('User');
                     
-                    $username   = strip_tags($_POST['username']);
-                    $email      = strip_tags($_POST['email']);
                     $activation = sha1(MCRYPT_DEV_URANDOM);
                     
                     $result = $userTable->create([

@@ -33,7 +33,22 @@ class CommentEntity extends Entity
      * @var int
      */
     protected $article;
-
+    
+    /**
+     * @var int
+     */
+    protected $parentId;
+    
+    /**
+     * @var int
+     */
+    protected $level;
+    
+    /**
+     * @var datetime
+     */
+    protected $datePosted;
+    
     /**
      * @return int
      */
@@ -107,6 +122,57 @@ class CommentEntity extends Entity
     public function setArticle()
     {
         $this->article = $article;
+        return $this;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getParentId()
+    {
+        return $this->parentId;
+    }
+
+    /**
+     * @return void
+     */
+    public function setParentId()
+    {
+        $this->parentId = $parentId;
+        return $this;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * @return void
+     */
+    public function setLevel()
+    {
+        $this->level = $level;
+        return $this;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getDatePosted()
+    {
+        return $this->datePosted;
+    }
+
+    /**
+     * @return void
+     */
+    public function setDatePosted()
+    {
+        $this->datePosted = $datePosted;
         return $this;
     }
     

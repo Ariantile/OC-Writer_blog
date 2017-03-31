@@ -25,6 +25,12 @@ class AdminArticleController extends AdminAppController
     
     public function edit()
     {
+        if (isset($_SESSION['flash']))
+        {
+            $msg = $_SESSION['flash'];
+            unset($_SESSION['flash']);
+        }
+        
         $articleTable = App::getInstance()->getTable('Article');
 
         if (!empty($_POST)){
@@ -51,7 +57,7 @@ class AdminArticleController extends AdminAppController
         
         $token = $this->formToken();
         
-        $this->render('admin.articles.edit', compact('categories', 'form', 'token'));
+        $this->render('admin.articles.edit', compact('categories', 'form', 'token', 'msg'));
     }
     
     public function delete()

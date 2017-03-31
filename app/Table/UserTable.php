@@ -69,7 +69,7 @@ class UserTable extends Table
     {
         return $this->query("
             SELECT COUNT(id) as allUsers
-            FROM User
+            FROM user
         ");
     }
     
