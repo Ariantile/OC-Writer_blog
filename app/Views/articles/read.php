@@ -49,11 +49,13 @@
         <div class="bloc-pagination-bt row">
 
             <?php 
-                $cpage  = $comments['cp'];
                 $nbPage = $comments['nbPage'];
-                $url    = '/writer/web/article/' . $article->getId() . '/';
-                $pag    = new PaginateNav;
-                $pag->getPaginateNav($cpage, $nbPage, $url);
+                if ($nbPage > 1) {
+                    $cpage  = $comments['cp'];
+                    $url    = '/writer/web/article/' . $article->getId() . '/';
+                    $pag    = new PaginateNav;
+                    $pag->getPaginateNav($cpage, $nbPage, $url);
+                }
             ?>
 
         </div>
@@ -92,25 +94,6 @@
         <button id="closeRight">
             <i class="fa fa-times fa-lg" aria-hidden="true"></i>
         </button>
-    </div>
-    
-    <h2>Police du texte</h2>
-    <div class="reading-font-bloc row">
-        <button id="font-gara" class="reading-options-bt">Garamond</button>
-        <button id="font-bask" class="reading-options-bt">Baskerville</button>
-        <button id="font-open" class="reading-options-bt reading-options-bt-active">Open Sans</button>
-        <button id="font-robo" class="reading-options-bt">Roboto</button>
-        <button id="font-aria" class="reading-options-bt">Arial</button>
-        <button id="font-time" class="reading-options-bt">Times New Roman</button>
-    </div>
-    
-    <h2>Taille du texte</h2>
-    <div class="reading-size-bloc row">
-        <button id="font-xs" class="reading-options-bt">Très petit</button>
-        <button id="font-sm" class="reading-options-bt">Petit</button>
-        <button id="font-nm" class="reading-options-bt reading-options-bt-active">Normal</button>
-        <button id="font-lg" class="reading-options-bt">Grand</button>
-        <button id="font-xl" class="reading-options-bt">Très grand</button>
     </div>
     
     <h2>Couleur du texte et du fond</h2>

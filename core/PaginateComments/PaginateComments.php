@@ -35,14 +35,25 @@ class PaginateComments
                 $commentShowReply = '';
             }
             
-            $commentReply = '<div class="comment-respond"><button class="comment-reply" data-id="' . $c->id . '">Répondre</button></div><div class="comment-bottom">' . $commentShowReply . '</div>';
+            if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Member')) {
+                $replyButton = '<button class="comment-reply" data-id="' . $c->id . '">Répondre</button>';
+            } else {
+                $replyButton = '';
+            }
+            
+            $commentReply = '<div class="comment-respond">' . $replyButton . '</div><div class="comment-bottom">' . $commentShowReply . '</div>';
             
         } else {
             $commentReply = '';
         }
         
+        if ($c->flag == false && (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Member')) ) {
+            $commentSignal = '<button id="signal-' . $c->id . '" class="comment-signal" data-id="' . $c->id . '"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button>';
+        } else {
+            $commentSignal = '<span class="signal-off"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>';
+        }
+        
         $commentInfos = '<span class="comment-info">' . htmlspecialchars($c->username) . ' - ' . $date . '</span>';
-        $commentSignal = '<button id="signal-' . $c->id . '" class="comment-signal" data-id="' . $c->id . '"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button>';
         $commentHeader = '<div class="comment-head">' . $commentInfos . $commentSignal . '</div>';
         $commentContent = '<p class="comment-content">' . htmlspecialchars($c->comment) . '</p>';
 

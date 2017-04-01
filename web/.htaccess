@@ -26,5 +26,6 @@ RewriteRule ^admin/user/edit/([0-9]+)$                  index.php?p=admin-user-e
 RewriteRule ^admin/comment/edit/([0-9]+)$               index.php?p=admin-comment-edit&id=$1
 
 RewriteRule ^ajax/comments$                             index.php?p=article-ajaxComments
+RewriteRule ^ajax/signal$                               index.php?p=article-ajaxSignalComments
 
 ErrorDocument 404 /writer/web/index.php?p=app-notFound

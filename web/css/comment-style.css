@@ -55,7 +55,7 @@
     max-width: 1000px;
 }
 
-.comment-signal, .comment-reply, .show-reply
+.comment-signal, .signal-off, .comment-reply, .show-reply
 {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -64,6 +64,12 @@
 .comment-signal
 {
     color: #E52237;
+    float: right;
+}
+
+.signal-off
+{
+    color: #96A0A6!important;
     float: right;
 }
 

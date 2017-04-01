@@ -18,11 +18,6 @@ class CategorieEntity extends Entity
      * @var string
      */
     protected $name;
-    
-    /**
-     * @var string
-     */
-    protected $type;
 
     /**
      * @return int

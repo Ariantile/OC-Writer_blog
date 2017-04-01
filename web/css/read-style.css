@@ -277,4 +277,10 @@ VIII   -   MEDIA QUERIES
         width: 250px!important;
         overflow: scroll;
     }
+    
+    .read-bloc-left
+    {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

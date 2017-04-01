@@ -50,11 +50,6 @@ class ArticleEntity extends Entity
     protected $user;
 
     /**
-     * @var int
-     */
-    protected $comment;
-
-    /**
      * @return int
      */
     public function getId()

@@ -201,6 +201,43 @@ class ArticleController extends AppController
         }
     }
     
+    public function ajaxSignalComments()
+    {
+        if ((!isset($_POST['signal'])) || 
+            (!isset($_SESSION['reading']) && $_SESSION['reading'] !== $_POST['cur']) ||
+            (!isset($_SESSION['token']) && $_SESSION['token'] !== $_POST['token']) ||
+            (!isset($_SESSION['type']))) {
+
+            $this->badRequest();
+            
+        } else {
+            $commentSignal = $_POST['signal'];
+            $commentTables = App::getInstance()->getTable('Comment');
+            $comment = $commentTables->getCommentFlag($commentSignal, $_POST['cur']);
+            
+            if ($comment == false) {
+                $this->badRequest();
+            } else {
+                
+                if ($comment->flag == true) {
+                    $message = 'Ce commentaire a déjà été signalé.';
+                } else {
+                    
+                    $result = $commentTables->update($commentSignal, [
+                        'flag' => true
+                    ]);
+                    if($result){
+                        $message = '<div class="alert alert-info flag-message">Merci de votre signalement.</div>';
+                        echo json_encode($message);
+                    } else {
+                        $message = '<div class="alert alert-info flag-message">Il y a eu un problème lors de votre requête, veuillez nous excuser pour la gène occasionnée.</div>';
+                        echo json_encode($message);
+                    }
+                }
+            }
+        }
+    }
+    
     public function write()
     {
         if (isset($_SESSION['type']) && $_SESSION['type'] == 'Admin') {

@@ -39,6 +39,21 @@ class CommentTable extends Table
         ", [$parent_id]);
     }
     
+    public function getCommentFlag($id, $cur)
+    {
+        return $this->query("
+            SELECT comment.id, comment.flag, comment.level, comment.datePosted, user.username as username, user.id as userId, article.id as articleId
+            FROM `comment`
+            LEFT JOIN `article` as article
+            ON comment.article_id = article.id
+            LEFT JOIN `user` as user
+            ON comment.user_id = user.id
+            WHERE comment.id = ?
+            AND comment.article_id = " . $cur . "
+            ORDER BY comment.datePosted ASC
+        ", [$id], true);
+    }
+    
     public function checkCommentParent($parent_id)
     {
         return $this->query("
