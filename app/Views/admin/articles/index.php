@@ -69,6 +69,8 @@
             } else { 
         ?>
         
+        <?= $form->token($token) ?>
+        
         <hr>
         <div class="bloc-pagination-bt row">
             

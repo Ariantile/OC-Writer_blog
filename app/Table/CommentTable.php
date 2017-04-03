@@ -24,6 +24,32 @@ class CommentTable extends Table
         ", [$id], true);
     }
     
+    /*
+     * Récupère un commentaire par id
+     * @return int
+     */
+    public function findOne($id)
+    {
+        return $this->query("
+            SELECT comment.id, comment.parent_id, comment.level
+            FROM comment
+            WHERE comment.id = ?
+        ", [$id], true);
+    }
+    
+    /*
+     * Récupère un commentaire par id
+     * @return int
+     */
+    public function findChildToDelete($id)
+    {
+        return $this->query("
+            SELECT comment.id, comment.parent_id, comment.level
+            FROM comment
+            WHERE comment.parent_id = ?
+        ", [$id]);
+    }
+    
     public function getCommentsWithParent($parent_id, $cur)
     {
         return $this->query("
@@ -124,13 +150,13 @@ class CommentTable extends Table
         
         if ($type == 'admin') {
             $pagination = $this->query("
-                SELECT comment.id, comment.flag, user.username as username, user.id as user, article.title as title, article.id as article
+                SELECT comment.id, comment.flag, comment.level, comment.datePosted, user.username as username, user.id as user, article.title as title, article.id as article
                 FROM `comment`
                 LEFT JOIN `article` as article
                 ON comment.article_id = article.id
                 LEFT JOIN `user` as user
                 ON comment.user_id = user.id
-                ORDER BY comment.id DESC
+                ORDER BY comment.flag DESC, comment.datePosted DESC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
             );
             

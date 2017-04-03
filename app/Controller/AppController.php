@@ -27,6 +27,11 @@ class AppController extends Controller
         die();
     }
     
+    public function notFoundAjax()
+    {
+        header('HTTP/1.1 404 Not Found');
+    }
+    
     public function notAuthorized()
     {
         header('HTTP/1.1 403 Forbidden');
@@ -38,6 +43,11 @@ class AppController extends Controller
         die();
     }
     
+    public function notAuthorizedAjax()
+    {
+        header('HTTP/1.1 403 Forbidden');
+    }
+    
     public function badRequest()
     {
         header('HTTP/1.1 400 Bad Request');
@@ -47,6 +57,11 @@ class AppController extends Controller
         $this->render('error', compact('error_msg'));
             
         die();
+    }
+    
+    public function badRequestAjax()
+    {
+        header('HTTP/1.1 400 Bad Request');
     }
     
     public function formToken()

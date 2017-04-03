@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use \App;
-use Core\Form\BootstrapForm;
 use Core\Auth;
-use App\Validator\Validator;
 use \DateTime;
+use Core\Form\BootstrapForm;
+use App\Validator\Validator;
 use Core\PaginateComments\PaginateComments;
 
 class ArticleController extends AppController
@@ -137,7 +137,8 @@ class ArticleController extends AppController
                     $date     = $datetime->format('Y-m-d H:i:s');
                     
                     $result = $commentTable->create([
-                            'comment'          => $content,
+                            'comment'        => $content,
+                            'flag'           => false,
                             'datePosted'     => $date,
                             'level'          => $level,
                             'parent_id'      => $parentId,
@@ -208,7 +209,7 @@ class ArticleController extends AppController
             (!isset($_SESSION['token']) && $_SESSION['token'] !== $_POST['token']) ||
             (!isset($_SESSION['type']))) {
 
-            $this->badRequest();
+            $this->notAuthorizedAjax();
             
         } else {
             $commentSignal = $_POST['signal'];
@@ -216,20 +217,23 @@ class ArticleController extends AppController
             $comment = $commentTables->getCommentFlag($commentSignal, $_POST['cur']);
             
             if ($comment == false) {
-                $this->badRequest();
+                $this->notFoundAjax();
             } else {
                 
                 if ($comment->flag == true) {
+                    $this->badRequestAjax();
                     $message = 'Ce commentaire a déjà été signalé.';
+                    echo json_encode($message);
                 } else {
                     
                     $result = $commentTables->update($commentSignal, [
                         'flag' => true
                     ]);
                     if($result){
-                        $message = '<div class="alert alert-info flag-message">Merci de votre signalement.</div>';
+                        $message = 'Merci de votre signalement.';
                         echo json_encode($message);
                     } else {
+                        $this->badRequestAjax();
                         $message = '<div class="alert alert-info flag-message">Il y a eu un problème lors de votre requête, veuillez nous excuser pour la gène occasionnée.</div>';
                         echo json_encode($message);
                     }
@@ -268,7 +272,7 @@ class ArticleController extends AppController
 
                     if ($this->checkToken() == false){
                         $_SESSION['flash'] = 'Session expirée, veuillez recommencer.';
-                        header('Location: /writer/web/ajouter');
+                        header('Location: /writer/web/article/ajouter');
                     } else {
                         
                         $articleTable = App::getInstance()->getTable('Article');

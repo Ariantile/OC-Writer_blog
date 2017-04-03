@@ -6,12 +6,23 @@
     
     <h1>Administration des commentaires</h1>
     
+    <?php if(isset($msg)) { ?>
+        <div class="alert alert-info msg-cont">
+            <?= $msg; ?>
+        </div>
+    <?php } ?>
+    
+    <div class="msg-cont-aj">
+        
+    </div>
+    
     <div class="admin-table-bloc">
     
         <table class="table">
             <thead class="small-hidden">
                 <tr>
                     <td>ID</td>
+                    <td>Niveau</td>
                     <td>Flag</td>
                     <td>Utilisateur</td>
                     <td>Article</td>
@@ -20,8 +31,9 @@
             </thead>
             <tbody>
                 <?php foreach ($comments['query'] as $comment): ?>
-                    <tr>
+                    <tr id="row-<?= $comment->id; ?>">
                         <td><?= $comment->id; ?></td>
+                        <td><?= $comment->level; ?></td>
                         <td>
                             <?php 
                                 if ($comment->flag == true) {
@@ -45,13 +57,14 @@
                             <a class="bt-custom-action bt-custom-action-edit" href="/writer/web/admin/comment/edit/<?= $comment->id; ?>">
                                 <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                             </a>
-
-                            <form action="?p=admin-comment-delete" style="display: inline;" method="post">
+                            
+                            <div style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $comment->id ?>">
-                                <button type="submit" class="bt-custom-action bt-custom-action-delete" href="/writer/web/admin/comment/delete/<? $comment->id; ?>">
+                                <button id="del-<?= $comment->id; ?>" data-id="<?= $comment->id; ?>" type="button" class="bt-custom-action bt-custom-action-delete delete-comment">
                                     <i class="fa fa-times fa-2x" aria-hidden="true"></i>
                                 </button>
-                            </form>
+                            </div>
+                           
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -64,6 +77,8 @@
                 echo '<div class="alert alert-danger">Aucun commentaire trouvé...</div>';
             } else { 
         ?>
+        
+        <?= $form->token($token) ?>
         
         <hr>
         

@@ -170,5 +170,13 @@
             <script src="/writer/web/js/comments-script.js"></script>
             <script src="/writer/web/menu/js/classie.js"></script>
             <script src="/writer/web/menu/js/modernizr.custom.js"></script>
+            <?php 
+                if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin'))
+                {
+            ?>
+                <script src="/writer/web/js/admin-script.js"></script>
+            <?php
+                }
+            ?>
     </body>
 </html>

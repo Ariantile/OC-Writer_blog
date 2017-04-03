@@ -14,31 +14,37 @@
         menubar: false
     });
     
-</script> 
+</script>
     
-    <form method="post">
+<?php if(isset($msg)) { ?>
+    <div class="alert alert-info msg-cont">
+        <?= $msg; ?>
+    </div>
+<?php } ?>  
+    
+<form method="post">
         
-        <div class="col-lg-8 col-xs-12 write-bloc-left shadow-box-class">
-            <div class="write-form-title">
-                <?= $form->input('title', 'Titre', null, ['required' => true]); ?>
-            </div>
-            <div class="write-form-writing-area">
-                <?= $form->textarea('text'); ?>
-            </div>
+    <div class="col-lg-8 col-xs-12 write-bloc-left shadow-box-class">
+        <div class="write-form-title">
+            <?= $form->input('title', 'Titre', null, ['required' => true]); ?>
         </div>
-        <div class="col-lg-4 col-xs-12 write-bloc-right">
-            <h2>Catégories &amp; Publication</h2>
-            <div class="write-bloc-option row">
-                <h4>Catégories</h4>
-                <?= $form->select('categorie_id', $categories, '-- Choisir une catégories --', ['required' => true, 'type' => 'cat_write']) ?>
-                <h4 class="write-option-notfirst">Publication</h4>
-                <div class="publish-bloc">
-                    <?= $form->checkbox('publish', 'PUBLIER') ?>
-                    <?= $form->checkbox('comment', 'COMMENTAIRES') ?>
-                    <?= $form->token($token) ?>
-                </div>
-                <?= $form->submit('Sauvegarder'); ?>
-            </div>
+        <div class="write-form-writing-area">
+            <?= $form->textarea('text'); ?>
         </div>
+    </div>
+    <div class="col-lg-4 col-xs-12 write-bloc-right">
+        <h2>Catégories &amp; Publication</h2>
+        <div class="write-bloc-option row">
+            <h4>Catégories</h4>
+            <?= $form->select('categorie_id', $categories, '-- Choisir une catégories --', ['required' => true, 'type' => 'cat_write']) ?>
+            <h4 class="write-option-notfirst">Publication</h4>
+            <div class="publish-bloc">
+                <?= $form->checkbox('publish', 'PUBLIER') ?>
+                <?= $form->checkbox('comment', 'COMMENTAIRES') ?>
+                <?= $form->token($token) ?>
+            </div>
+            <?= $form->submit('Sauvegarder'); ?>
+        </div>
+    </div>
         
-    </form>
+</form>

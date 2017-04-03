@@ -6,6 +6,12 @@
     
     <h1>Administration des utilisateurs</h1>
     
+    <?php if(isset($msg)) { ?>
+        <div class="alert alert-info msg-cont">
+            <?= $msg; ?>
+        </div>
+    <?php } ?>
+    
     <div class="admin-table-bloc">
 
         <table class="table">
@@ -41,13 +47,6 @@
                             <a class="bt-custom-action bt-custom-action-edit" href="/writer/web/admin/user/edit/<?= $user->id; ?>">
                                 <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                             </a>
-
-                            <form action="?p=admin-user-delete" style="display: inline;" method="post">
-                                <input type="hidden" name="id" value="<?= $user->id ?>">
-                                <button type="submit" class="bt-custom-action bt-custom-action-delete" href="/writer/web/admin/user/delete/<? $user->id; ?>">
-                                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-                                </button>
-                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

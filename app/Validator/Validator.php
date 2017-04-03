@@ -52,6 +52,8 @@ class Validator
     {
         $msg_empty              = 'Ce champs ne peut être vide.';
         $msg_empty_conf         = 'Ce champs ne peut être vide.';
+        $msg_max_cat            = 'Le nom de votre catégorie ne doit pas dépasser 200 caractères.';
+        $msg_categorie_unique   = 'Nom de catégorie déjà utilisé.';
         $msg_min                = 'Ce champs doit contenir au moins deux caractères.';
         $msg_max_comment        = 'Votre commentaire ne doit contenir plus de 500 caractères.';
         $msg_username_unique    = 'Nom d\'utilisateur déjà utilisée.';
@@ -70,6 +72,18 @@ class Validator
             array_push($errors, $msg_empty);
         } else if ( ($length < 2) && ($type !== 'categorie_id') ) {
             array_push($errors, $msg_min);
+        }
+        
+        if ($type == 'categorie' || $type == 'name') {
+            $check_unique_categorie = App::getInstance()->getTable('Categorie')->findOneUnique('name', $field);
+            
+            if (!empty($check_unique_categorie)){
+                array_push($errors, $msg_categorie_unique);
+            }
+            
+            if ($length > 200) {
+                array_push($errors, $msg_max_cat);
+            }
         }
         
         if ( ($type == 'comment') && ($length > 500) ) {

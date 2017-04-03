@@ -27,5 +27,8 @@ RewriteRule ^admin/comment/edit/([0-9]+)$               index.php?p=admin-commen
 
 RewriteRule ^ajax/comments$                             index.php?p=article-ajaxComments
 RewriteRule ^ajax/signal$                               index.php?p=article-ajaxSignalComments
+RewriteRule ^ajax/delete-cat$                           index.php?p=admin-categorie-delete
+RewriteRule ^ajax/delete-comment$                       index.php?p=admin-comment-delete
+RewriteRule ^ajax/delete-article$                       index.php?p=admin-article-delete
 
 ErrorDocument 404 /writer/web/index.php?p=app-notFound

@@ -16,6 +16,11 @@ VII     *** MEDIA QUERIES
 I   -   FONTS FAMILY & STYLE
 *******************************************/
 
+.commentaire-info-admin, .info-admin
+{
+    font-family: 'Oswald', sans-serif;
+}
+
 .admin-bloc-left h1, .admin-table-bloc table thead td
 {
     font-family: 'Pacifico', sans-serif;
@@ -38,7 +43,7 @@ II   -   FONTS SIZES
     font-size: 18px;
 }
 
-.admin-table-bloc table td
+.admin-table-bloc table td, .commentaire-info-admin, .info-admin
 {
     font-size: 16px;
 }
@@ -89,6 +94,12 @@ III   -   FONTS COLORS
     color: #1E6921;
 }
 
+.commentaire-info-admin a:hover
+{
+    color: #31ABBA;
+    text-decoration: none;
+}
+
 /*******************************************
 IV   -   BACKGROUND COLORS 
 *******************************************/
@@ -109,6 +120,15 @@ IV   -   BACKGROUND COLORS
     border: none;
 }
 
+.msg-cont-aj
+{
+    margin-top: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 /*******************************************
 V   -   BORDER COLORS & SIZE 
 *******************************************/
@@ -121,6 +141,30 @@ V   -   BORDER COLORS & SIZE
 /*******************************************
 VI   -   BLOCS 
 *******************************************/
+
+.sub-art-admin
+{
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cat-title-admin
+{
+    margin-top: 0px!important;
+    border-top: 1px solid #96A0A6;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px!important;
+    border-bottom: 4px solid #96A0A6;
+    background-color: #E9E9ED;
+    color: #333;
+    font-size: 18px;
+    font-family: 'Pacifico', sans-serif;
+}
 
 .admin-bloc-left h1
 {
@@ -147,6 +191,11 @@ VI   -   BLOCS
 .admin-add-cat
 {
     padding-top: 8px;
+}
+
+.edit-form textarea
+{
+    resize: none;
 }
 
 /*******************************************
@@ -208,6 +257,12 @@ VII   -   MEDIA QUERIES
     {
         display: table;
         width: 100%;
+    }
+    
+    .add-cat-cont
+    {
+        padding-left: 0px!important;
+        padding-right: 0px!important;
     }
     
 }

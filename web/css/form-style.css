@@ -49,6 +49,39 @@ LOGIN
     margin-bottom: 20px;
 }
 
+.edit-form
+{
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #96A0A6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+.edit-form-article
+{
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #96A0A6;
+    width: 100%;
+}
+
+.edit-form-title
+{
+    font-family: 'Pacifico', sans-serif;
+    color: #96A0A6;
+    background-color: #E9E9ED;
+    border-bottom: 4px solid #96A0A6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
 .login-form
 {
     max-width: 500px;

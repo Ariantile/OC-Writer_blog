@@ -132,8 +132,10 @@ class BootstrapForm extends Form
             $attributes = 'checked';
         }
         
+        $val = 1;
+        
         return $this->surround(
-            '<input ' . $attributes . ' id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '">'
+            '<input ' . $attributes . ' id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $val . '">'
         );
     }
     

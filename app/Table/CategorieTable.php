@@ -23,6 +23,19 @@ class CategorieTable extends Table
     }
     
     /*
+     * Cherche si un username ou un email existe déjà
+     * @return array
+     */
+    public function findOneUnique($type, $value)
+    {
+        return $this->query("
+            SELECT categorie.". $type ."
+            FROM categorie
+            WHERE categorie.". $type ." = ?
+        ", [$value], true);
+    }
+    
+    /*
      * Recupère toutes les categories
      * @return array
      */

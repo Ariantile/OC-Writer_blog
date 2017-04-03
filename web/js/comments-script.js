@@ -46,13 +46,13 @@ $(function() {
                 dataType: "json",
                     
                 success: function(message, status) {
-                    $('#comment-' + cId +'').append(message).delay(4000).queue( function(){
+                    $('#comment-' + cId +'').append('<div class="alert alert-info flag-message">' + message + '</div>').delay(4000).queue( function(){
                         $('.flag-message').fadeOut( 2000 );
                     });
                     $but.replaceWith('<span class="signal-off"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span>');
                 },
                     
-                error : function(result, status, error){
+                error : function(message, status, error){
                     $but.prop('disabled', false);
                 }
 

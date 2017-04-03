@@ -9,18 +9,30 @@ class AdminArticleController extends AdminAppController
 {
     public function index()
     {
-        if (isset($_GET['cp'])){
-            $cp = $_GET['cp'];
-        } else {
-            $cp = 1;
-        }
+        if (isset($_SESSION['type']) && $_SESSION['type'] == 'Admin') {
+            
+            if (isset($_GET['cp'])){
+                $cp = $_GET['cp'];
+            } else {
+                $cp = 1;
+            }
+            
+            if (isset($_SESSION['flash']))
+            {
+                $msg = $_SESSION['flash'];
+                unset($_SESSION['flash']);
+            }
 
-        $form = new BootstrapForm($_POST);
+            $type = 'admin';
+            
+            $form = new BootstrapForm();
+            $token = $this->formToken();
         
-        $type = 'admin';
-        
-        $articles = App::getInstance()->getTable('Article')->paginateArticles($cp, $type);
-        $this->render('admin.articles.index', compact('articles', 'form'));
+            $articles = App::getInstance()->getTable('Article')->paginateArticles($cp, $type);
+            $this->render('admin.articles.index', compact('articles', 'form', 'token', 'msg'));
+        } else {
+            $this->notAuthorized();
+        }
     }
     
     public function edit()
