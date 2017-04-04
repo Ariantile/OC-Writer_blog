@@ -44,7 +44,7 @@ class CategorieTable extends Table
         return $this->query("
             SELECT categorie.id, categorie.name
             FROM categorie
-            ORDER BY categorie.name DESC
+            ORDER BY categorie.name ASC
         ");
     }
     
@@ -76,7 +76,7 @@ class CategorieTable extends Table
         $pagination = $this->query("
             SELECT categorie.id, categorie.name
             FROM `categorie`
-            ORDER BY categorie.id DESC
+            ORDER BY categorie.id ASC
             LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
         );
         

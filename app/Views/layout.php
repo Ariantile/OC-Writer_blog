@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/writer/web/css/write-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/layout-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/home-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/member-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/index-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/read-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/form-style.css" type="text/css">
@@ -39,7 +40,7 @@
                             {
                         ?>
                             <span><a href="/writer/web/logout">Déconnexion</a></span>
-                            <span><a href="/writer/web/membre/self">Profil</a></span>
+                            <span><a href="/writer/web/membre"><?= $_SESSION['username'] ?></a></span>
                         <?php
                             } else {
                         ?>
@@ -64,7 +65,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="logo navbar-brand" href="/writer/web/accueil">
+                        <a class="logo navbar-brand" href="/writer/web/">
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -160,6 +161,18 @@
                         </ul>
                     </div>
                        
+                <?php
+                    } else {
+                ?>
+                    <div class="col-sm-6 admin-links-bloc">
+                        <p>Contact</p>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="/writer/web/contact"><i class="fa fa-envelope fa-4x" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 <?php
                     }
                 ?>

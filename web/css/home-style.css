@@ -39,27 +39,64 @@ V   -   BORDER COLORS & SIZE
 VI   -   BLOCS 
 *******************************************/
 
-#home-carrousel
+.home-bloc
 {
-    max-width: 500px;
+    border-bottom: 2px solid #96A0A6;
+    width: 100%;
+    height: 500px;
+    background-image: url("../img/home.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+    text-align: center;
+}
+
+.home-bloc h1
+{
+    margin-top: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 50px;
+    color: #FFFFFF;
+    background-color: #2B5695;
+    border-bottom: 2px solid #96A0A6;
+}
+
+.home-main
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #31ABBA;
+    text-align: center;
+}
+
+.home-main i
+{
+    color: #FFFFFF;
+}
+
+.home-main p
+{
+    padding-top: 10px;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*******************************************
 VII   -   MEDIA QUERIES
 *******************************************/
 
-@media screen and (min-width: 1201px) {
-   
-}
-
-@media screen and (max-width: 1200px) {
-    
-}
-
-@media screen and (max-width: 1155px) {
-    
-}
-
-@media screen and (max-width: 500px) {
-
+@media screen and (max-width: 767px) {
+    .home-bloc h1
+    {
+        font-size: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

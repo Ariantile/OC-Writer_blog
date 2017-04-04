@@ -22,7 +22,7 @@ class ArticleTable extends Table
             ON categorie_id = categorie.id
             WHERE article.published = true
             ORDER BY article.datePublished DESC
-            LIMIT 8
+            LIMIT 5
         ");
     }
  
@@ -137,7 +137,7 @@ class ArticleTable extends Table
                 LEFT JOIN `categorie` as categorie
                 ON categorie_id = categorie.id
                 WHERE article.published = true
-                ORDER BY article.datePublished DESC
+                ORDER BY article.datePublished ASC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage"
             );
             
@@ -150,7 +150,7 @@ class ArticleTable extends Table
                 ON categorie_id = categorie.id
                 WHERE categorie.id = ?
                 AND article.published = true
-                ORDER BY article.datePublished DESC
+                ORDER BY article.datePublished ASC
                 LIMIT " . (($cp - 1) * $perPage) . ", $perPage", [$id]
             );
             

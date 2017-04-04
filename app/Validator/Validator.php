@@ -64,6 +64,7 @@ class Validator
         $msg_pass_conf          = 'Les champs de mot de passe doivent correspondre.';
         $msg_mail_exist         = 'Adresse courriel non trouvée. Veuillez vérifier les inforations saissies';
         $msg_mail_exist_status  = 'Compte banni ou inactif.';
+        $msg_contact_max        = 'Votre message ne doit pas contenir plus de 2000 caractères.';
         
         $errors = [];
         $length = strlen($field);
@@ -142,6 +143,18 @@ class Validator
                 $check_exist_email->status == 'Registred' ||
                 $check_exist_email->activated == false){
                 array_push($errors, $msg_mail_exist_status);
+            }
+        }
+        
+        if ($type == 'message') {
+            if ($length > 2000) {
+                array_push($errors, $msg_contact_max);
+            }
+        }
+        
+        if ($type == 'emailContact') {
+            if (filter_var($field, FILTER_VALIDATE_EMAIL) == false) {
+                array_push($errors, $msg_mail);
             }
         }
         

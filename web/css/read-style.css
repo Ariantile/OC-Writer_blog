@@ -204,12 +204,14 @@ VI   -   BLOCS
 
 .read-title-bloc
 {
-    width: 100%;
+    max-width: 1200px;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 20px;
     margin-top: 40px;
     margin-bottom: 0px!important;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .comments-title
@@ -221,9 +223,12 @@ VI   -   BLOCS
 
 .reading-bloc
 {
+    max-width: 1200px;
     text-align: justify;
     padding: 20px;
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .reading-font-bloc, .reading-size-bloc, .reading-color-bloc

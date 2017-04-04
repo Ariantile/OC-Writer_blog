@@ -9,7 +9,7 @@ App::load();
 if(isset($_GET['p'])){
     $view = $_GET['p'];
 } else {
-    $view = 'article-index';
+    $view = 'article-home';
 }
 
 $view = explode('-', $view);

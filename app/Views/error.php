@@ -5,6 +5,6 @@
         <?= $error_msg ?>
         <br>
         <br>
-        Si vous souhaitez retourner sur la page d'accueil, veuillez <a href="/writer/web/accueil">cliquer ici</a>.
+        Si vous souhaitez retourner sur la page d'accueil, veuillez <a href="/writer/web/">cliquer ici</a>.
     </p>
 </div>

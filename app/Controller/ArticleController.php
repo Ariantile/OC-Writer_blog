@@ -8,14 +8,61 @@ use \DateTime;
 use Core\Form\BootstrapForm;
 use App\Validator\Validator;
 use Core\PaginateComments\PaginateComments;
+use App\Mailer\Mailer;
 
 class ArticleController extends AppController
 {
     public function home()
     {
-        $articles = App::getInstance()->getTable('Article')->getLast();
+        $this->render('home');
+    }
+    
+    public function contact()
+    {
+        if (isset($_SESSION['flash']))
+        {
+            $msg = $_SESSION['flash'];
+            unset($_SESSION['flash']);
+        }
         
-        $this->render('home', compact('articles'));
+        $error = false;
+        
+        if(!empty($_POST))
+        {
+            $validator = new Validator;
+            
+            $email   = strip_tags($_POST['emailContact']);
+            $message = strip_tags($_POST['contact']);
+            
+            $post_array = array(
+                ['type' => 'emailContact', 'field' => $email],
+                ['type' => 'contact', 'field' => $message]
+            );
+            
+            $errors_msgs = $validator->validateForm($post_array);
+            
+            if ($errors_msgs == false) {
+                
+                if ($this->checkToken() == false){
+                    $_SESSION['flash'] = 'Session expirée, veuillez recommencer.';
+                    header('Location: /writer/web/contact');
+                } else {
+                    $mailer = new Mailer();
+                    $type   = 'contact';
+                    $mailer->sendMail($type, null, $email, null, $message);
+                        $_SESSION['flash'] = 'Merci de m\'avoir contacté, je vous répondrai sous peu.';
+                        header('Location: /writer/web/contact');
+                }
+            } else {
+                $error = true;
+            }
+        }
+
+        $form = new BootstrapForm($_POST);
+        
+        $token = $this->formToken();
+        
+        $this->render('contact', compact('form', 'error', 'token', 'form_errors', 'msg'));
     }
     
     public function index()
@@ -158,14 +205,11 @@ class ArticleController extends AppController
         $app = App::getInstance();
         $article = $app->getTable('Article')->findWithCategorie($_GET['id']);
         
-        if ($article === false) {
+        if ($article == false) {
             $this->notFound();
-        } else if (($article->published === false) && (!isset($_SESSION['type']))) {
-            $this->notAuthorized();
-        } else if (($article->published === false) && (isset($_SESSION['type']) && $_SESSION['type'] !== 'Admin')) {
+        } else if (($article->published == false) && (!isset($_SESSION['type']) || $_SESSION['type'] !== 'Admin')) {
             $this->notAuthorized();
         } else {
-            
             $type = 'read';
             
             $commentTable = App::getInstance()->getTable('Comment');

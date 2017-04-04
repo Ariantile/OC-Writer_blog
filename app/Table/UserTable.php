@@ -39,6 +39,19 @@ class UserTable extends Table
      * Récupères un utilisateur par id
      * @return array
      */
+    public function findMember($id)
+    {
+        return $this->query("
+            SELECT user.id, user.username, user.email, user.type
+            FROM user
+            WHERE user.id = ?
+        ", [$id], true);
+    }
+    
+    /*
+     * Récupères un utilisateur par id
+     * @return array
+     */
     public function findOne($id)
     {
         return $this->query("

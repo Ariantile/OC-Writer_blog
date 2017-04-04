@@ -99,7 +99,7 @@ class AdminUserController extends AdminAppController
 
             $token = $this->formToken();
 
-            $this->render('admin.users.edit', compact('form', 'token', 'user'));
+            $this->render('admin.users.edit', compact('form', 'token', 'user', 'form_errors'));
             
         } else {
             $this->notAuthorized();

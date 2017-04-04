@@ -1,0 +1,67 @@
+.member-bloc
+{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.member-infos, .member-actions
+{
+    background-color: #FFFFFF;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-bottom: 1px solid #96A0A6;
+}
+
+.member-infos .info h4
+{
+    font-family: 'Pacifico', sans-serif;
+    font-size: 20px;
+    color: #333;
+    background-color: #E9E9ED;
+    border-bottom: 4px solid #96A0A6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.member-infos .info p
+{
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-title
+{
+    margin-top: 100px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E9E9ED;
+    border-bottom: 4px solid #96A0A6;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #333;
+    padding-left: 20px;
+}
+
+.contact-form
+{
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-bottom: 2px solid #96A0A6;
+    margin-bottom: 100px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contact-form textarea
+{
+    resize: none;
+}

@@ -244,6 +244,22 @@ class UserController extends AppController
         $_SESSION = array();
         session_destroy();
         
-        header('Location: /writer/web/accueil');   
+        header('Location: /writer/web/');   
+    }
+    
+    public function member()
+    {        
+        if (isset($_SESSION['type'])) {
+            
+            $username = $_SESSION['username'];
+            $email = $_SESSION['email'];
+            $type = $_SESSION['type'];
+            
+            $memberInfos = array('username' => $username, 'email' => $email, 'type' => $type);
+            
+            $this->render('users.member', compact('memberInfos'));
+        } else {
+            $this->notAuthorized();
+        }
     }
 }

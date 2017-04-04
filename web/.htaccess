@@ -1,15 +1,16 @@
 RewriteEngine on
 
-RewriteBase /writer/web
+RewriteBase /writer/web/
 
-RewriteRule ^accueil$                                   index.php?p=article-home
+RewriteRule ^/$                                         index.php?p=article-home
+RewriteRule ^contact$                                   index.php?p=article-contact
 RewriteRule ^article/([0-9]+)/([0-9]+)$                 index.php?p=article-read&id=$1&cp=$2
 RewriteRule ^article/index/([0-9]+)$                    index.php?p=article-index&cp=$1
 RewriteRule ^article/index/cat/([0-9]+)/([0-9]+)$       index.php?p=article-indexbycategory&id=$1&cp=$2
 RewriteRule ^article/recherche/(.*)/([0-9]+)$           index.php?p=article-searchresults&key=$1&cp=$2 [QSA]
 RewriteRule ^article/recherche/([0-9]+)$                index.php?p=article-searchresults&cp=$1 [QSA]
 RewriteRule ^article/ajouter$                           index.php?p=article-write
-RewriteRule ^membre$                                    index.php?p=member
+RewriteRule ^membre$                                    index.php?p=user-member
 RewriteRule ^login$                                     index.php?p=user-login
 RewriteRule ^logout$                                    index.php?p=user-logout
 RewriteRule ^inscription$                               index.php?p=user-register

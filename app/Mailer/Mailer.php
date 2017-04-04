@@ -29,7 +29,7 @@ class Mailer
     /**
      * Génère et envoi les emails avec swiftmailer
      */
-    function sendMail($type, $code, $email, $username)
+    function sendMail($type, $code = null, $email, $username = null, $message = null)
     {
         if ($type == 'activation') {
             $subject = 'Activez votre compte';
@@ -53,6 +53,20 @@ class Mailer
                             ' <body>' .
                                 '<br><br>' .
                                 'Pour réinitialiser votre mot de passe, veuillez <a href="http://localhost/writer/web/oublie/' . $code . '"/>Cliquer ici</a>.' .
+                            ' </body>' .
+                        '</html>';
+            $emailFormat = 'text/html';
+        } else if ($type == 'contact') {
+            $subject = 'Contact';
+            $from    = array(htmlspecialchars($email));
+            $to      = array('romeo.gre.site@gmail.com');
+            $body    =  '<html>' .
+                            ' <head>'. htmlspecialchars($email) .' vous a contacté avec le message suivant :</head>' .
+                            ' <body>' .
+                                '<br><br>' .
+                                '' . htmlspecialchars($message) . '' .
+                                '<br><br>' .
+                                '<a href="mailto:' . htmlspecialchars($email) . '">Répondre</a>' .
                             ' </body>' .
                         '</html>';
             $emailFormat = 'text/html';
