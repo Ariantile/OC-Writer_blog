@@ -4,7 +4,7 @@
 
 <div class="admin-bloc-left">
     
-    <h1>Administration des commentaires</h1>
+    <h1 id="title-admin">Administration des commentaires</h1>
     
     <?php if(isset($msg)) { ?>
         <div class="alert alert-info msg-cont">
@@ -60,9 +60,9 @@
                             
                             <div style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $comment->id ?>">
-                                <button id="del-<?= $comment->id; ?>" data-id="<?= $comment->id; ?>" type="button" class="bt-custom-action bt-custom-action-delete delete-comment">
-                                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-                                </button>
+                                <button id="confirm-<?= $comment->id; ?>" data-id="<?= $comment->id; ?>" type="button" class="bt-custom-action bt-custom-action-delete modal-delete-comment">
+                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                            </button>
                             </div>
                            
                         </td>
@@ -71,6 +71,27 @@
             </tbody>
         </table>
 
+        <!-- Modal -->
+        <?php foreach ($comments['query'] as $comment): ?>
+            <div id="modal-<?= $comment->id; ?>" class="modal modal-hide">
+
+                <div class="modal-content">
+                    <div class="modal-but-cont">
+                        
+                    
+                    <input type="hidden" name="id" value="<?= $comment->id ?>">
+                    <button id="del-<?= $comment->id; ?>" data-id="<?= $comment->id; ?>" type="button" class="modal-but-conf delete-comment">
+                        Confirmer
+                    </button>
+                    <button id="cancel-<?= $comment->id; ?>" data-id="<?= $comment->id; ?>" type="button" class="modal-but-cancel cancel-delete">
+                        Annuler
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+        <?php endforeach; ?>
+       
         <?php
             if (!$comments['query'])
             {

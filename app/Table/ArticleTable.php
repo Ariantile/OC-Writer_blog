@@ -27,6 +27,19 @@ class ArticleTable extends Table
     }
  
     /*
+     * Récupères une catégorie par id
+     * @return array
+     */
+    public function findOne($id)
+    {
+        return $this->query("
+            SELECT article.id
+            FROM article
+            WHERE article.id = ?
+        ", [$id], true);
+    }
+    
+    /*
      * Récupères un écrit avec sa catégorie
      * @return array
      */

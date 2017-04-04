@@ -19,7 +19,8 @@
         <link rel="stylesheet" href="/writer/web/css/admin-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/error-style.css" type="text/css">
         <link rel="stylesheet" href="/writer/web/css/comment-style.css" type="text/css">
-        <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">   
+        <link rel="stylesheet" href="/writer/web/css/side_menu-style.css" type="text/css">
+        <link rel="stylesheet" href="/writer/web/css/modal-style.css" type="text/css">   
         <link rel="stylesheet" href="/writer/web/font-awesome/css/font-awesome.min.css">
         
         <link rel="stylesheet" href="/writer/web/menu/css/component.css">

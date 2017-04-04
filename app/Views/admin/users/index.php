@@ -4,7 +4,7 @@
 
 <div class="admin-bloc-left">
     
-    <h1>Administration des utilisateurs</h1>
+    <h1 id="title-admin">Administration des utilisateurs</h1>
     
     <?php if(isset($msg)) { ?>
         <div class="alert alert-info msg-cont">

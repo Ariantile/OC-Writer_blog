@@ -39,8 +39,8 @@
             <?= $form->select('categorie', $categories, null, ['type' => 'cat_write']) ?>
             <h4 class="write-option-notfirst">Publication</h4>
             <div class="publish-bloc">
-                <?= $form->checkbox('publish', 'PUBLIER') ?>
-                <?= $form->checkbox('comment', 'COMMENTAIRES') ?>
+                <?= $form->checkbox('publish', 'PUBLIER', 'admin') ?>
+                <?= $form->checkbox('comment', 'COMMENTAIRES', 'admin') ?>
                 <?= $form->token($token) ?>
             </div>
             <?= $form->submit('Sauvegarder'); ?>

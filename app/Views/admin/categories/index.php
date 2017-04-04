@@ -4,7 +4,7 @@
 
 <div class="admin-bloc-left">
     
-    <h1>Administration des catégories</h1>
+    <h1 id="title-admin">Administration des catégories</h1>
     
     <?php if(isset($msg)) { ?>
         <div class="alert alert-info msg-cont">
@@ -39,16 +39,35 @@
                             </a>
 
                             <div style="display: inline;">
-                                <input type="hidden" name="id" value="<?= $categorie->id ?>">
-                                <button id="del-<?= $categorie->id; ?>" data-id="<?= $categorie->id; ?>" type="button" class="bt-custom-action bt-custom-action-delete delete-cat">
-                                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-                                </button>
-                            </div>
+                            <button id="confirm-<?= $categorie->id; ?>" data-id="<?= $categorie->id; ?>" type="button" class="bt-custom-action bt-custom-action-delete modal-delete-cat">
+                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+        
+        <!-- Modal -->
+        <?php foreach ($categories['query'] as $categorie): ?>
+            <div id="modal-<?= $categorie->id; ?>" class="modal modal-hide">
+
+                <div class="modal-content">
+                    <div class="modal-but-cont">
+                        
+                    
+                    <input type="hidden" name="id" value="<?= $article->id ?>">
+                    <button id="del-<?= $categorie->id; ?>" data-id="<?= $categorie->id; ?>" type="button" class="modal-but-conf delete-cat">
+                        Confirmer
+                    </button>
+                    <button id="cancel-<?= $categorie->id; ?>" data-id="<?= $categorie->id; ?>" type="button" class="modal-but-cancel cancel-delete">
+                        Annuler
+                    </button>
+                    </div>
+                </div>
+
+            </div>
+        <?php endforeach; ?>
         
         <?php
             if (!$categories['query'])

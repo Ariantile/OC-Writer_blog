@@ -310,7 +310,7 @@ class ArticleController extends AppController
                             
                             if ($publish == true) {
                                 $_SESSION['flash'] = 'Article publié avec succès.';
-                                header('Location: /writer/web/article/' . $article_id . '');
+                                header('Location: /writer/web/article/' . $article_id . '/1');
                             } else {
                                 $_SESSION['flash'] = 'Article sauvegardé avec succès. Celui-ci n\'est pas encore publié.';
                                 header('Location: /writer/web/admin/article/edit/' . $article_id . '');

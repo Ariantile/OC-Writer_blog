@@ -108,12 +108,32 @@ class BootstrapForm extends Form
      * @param $name string
      * @return string
      */
-    public function checkbox($name, $label)
+    public function checkbox($name, $label, $type = null)
     {
-        $value = 1;
+        if ($type == 'admin') {
+            if ($name == 'publish') {
+                $value = $this->getValue('published');
+            } else if ($name == 'comment') {
+                $value = $this->getValue('commentsActive');
+            } else {
+                $value = $this->getValue($name);
+            }
+            
+            $attributes = '';
+            
+            if ($value == true) {
+                $attributes = 'checked';
+            }
+        }
+        
+        if ($type !== 'admin') {
+            $attributes = '';
+        }
+        
+        $val = 1;
         
         return $this->surround(
-            '<label for="input-' . $name . '"><input id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $value . '" class="checkbox-custom" "><span class="checkbox-replace-' . $name . '">' . $label . '</span></label>'
+            '<label for="input-' . $name . '"><input ' . $attributes . ' id="input-' . $name . '" type="checkbox" name="' . $name . '"  value="'. $val . '" class="checkbox-custom" "><span class="checkbox-replace-' . $name . '">' . $label . '</span></label>'
         );
     }
     
