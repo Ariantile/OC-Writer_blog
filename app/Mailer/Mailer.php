@@ -15,10 +15,10 @@ class Mailer
     private $mailer_user;
     private $mailer_password;
     
-    public function __construct($mailer_transport = 'gmail', 
-                                $mailer_host = 'smtp.gmail.com', 
-                                $mailer_user = 'romeo.gre.projet3@gmail.com', 
-                                $mailer_password = 'lM6@3xTiz1')
+    public function __construct($mailer_transport = '', 
+                                $mailer_host = '', 
+                                $mailer_user = '', 
+                                $mailer_password = '')
     {
         $this->mailer_transport = $mailer_transport;
         $this->mailer_host      = $mailer_host;
