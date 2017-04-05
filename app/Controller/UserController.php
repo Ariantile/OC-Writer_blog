@@ -45,7 +45,7 @@ class UserController extends AppController
                     
                     $userTable = App::getInstance()->getTable('User');
                     
-                    $activation = sha1(MCRYPT_DEV_URANDOM);
+                    $activation = sha1(uniqid());
                     
                     $result = $userTable->create([
                         'username'   => $username,
@@ -85,7 +85,6 @@ class UserController extends AppController
         if (empty($check_activation)) {
             $this->notFound();
         } else if($check_activation->activated == true) {
-            
             $_SESSION['flash'] = 'Compte déjà actif, veuillez vous connecter';
             header('Location: /writer/web/login');
             
@@ -130,7 +129,7 @@ class UserController extends AppController
                     $user        = App::getInstance()->getTable('User')->findOneByEmail($email);
                     $mailer      = new Mailer();
                     
-                    $forgotcode = sha1(MCRYPT_DEV_URANDOM);
+                    $forgotcode = sha1(uniqid());
                     $user_id    = $user->id;
                     $username   = $user->username;
                     

@@ -65,7 +65,7 @@
             if ($article->commentsActive == false) {
                 echo '<p class="alert alert-warning">Commentaires désactivés.</p>';
             } else if ($article->commentsActive == true && isset($_SESSION['type']) && 
-                       ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Membre'))
+                       ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Member'))
             {
         ?>
             <form method="post" class="form-comment" id="form-comment">

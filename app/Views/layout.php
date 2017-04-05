@@ -36,7 +36,7 @@
                 <div class="top-header-bloc">
                     <div class="top-header-links">
                         <?php 
-                            if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Membre'))
+                            if (isset($_SESSION['type']) && ($_SESSION['type'] == 'Admin' || $_SESSION['type'] == 'Member'))
                             {
                         ?>
                             <span><a href="/writer/web/logout">Déconnexion</a></span>
